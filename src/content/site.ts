@@ -35,6 +35,12 @@ export const VIDEOS: Video[] = [
 
 export type Shot = { file: string; alt: string }
 
+export const IOS_CONTROLS = {
+  title: 'On iPhone: play with touch or a controller',
+  touch: 'No controller connected? On-screen controls laid out like a Switch controller appear automatically.',
+  gamepad: 'Connect a gamepad and the on-screen controls hide. Disconnect it and they come back.',
+}
+
 export const GALLERY: Shot[] = [
   {
     file: 'screenshots/xcx-stage5-app-title.webp',

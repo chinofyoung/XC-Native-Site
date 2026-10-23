@@ -64,3 +64,9 @@ test('status mentions 60 fps and the mac guide mentions the experimental frame r
   const guide = document.getElementById('guide')!
   expect(guide.textContent).toMatch(/experimental 60 fps option/i)
 })
+
+test('media section highlights iPhone touch and gamepad controls', () => {
+  const box = screen.getByRole('complementary', { name: /play with touch or a controller/i })
+  expect(within(box).getByText(/on-screen controls laid out like a switch controller appear automatically/i)).toBeInTheDocument()
+  expect(within(box).getByText(/connect a gamepad and the on-screen controls hide/i)).toBeInTheDocument()
+})
