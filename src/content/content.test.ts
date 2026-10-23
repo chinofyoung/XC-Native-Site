@@ -19,7 +19,9 @@ test('asset() prefixes the base path once', () => {
 })
 test('ko-fi url', () => expect(KOFI_URL).toBe('https://ko-fi.com/chinofyoungdev'))
 test('iPhone video is scoped to the first area', () => {
-  expect(VIDEOS.find(v => v.device === 'iPhone 15 Pro Max')!.caption).toMatch(/first area/i)
+  const iphone = VIDEOS.filter(v => v.device === 'iPhone 15 Pro Max')
+  expect(iphone.length).toBeGreaterThan(0)
+  for (const v of iphone) expect(v.caption).toMatch(/first area/i)
 })
 test('guide commands never reference downloading keys or game files', () => {
   const text = JSON.stringify([MAC_STEPS, IOS_STEPS]).toLowerCase()
@@ -32,3 +34,9 @@ test('mac guide includes the builder window and brew line', () => {
 })
 test('stages 0–5', () => expect(STAGES.map(s => s.n)).toEqual([0, 1, 2, 3, 4, 5]))
 test('credits link https', () => CREDITS.forEach(c => expect(c.url).toMatch(/^https:\/\//)))
+
+test('VIDEOS contains the two iPhone YouTube ids', () => {
+  const ids = VIDEOS.map(v => v.id)
+  expect(ids).toContain('03pSBNEmmGQ')
+  expect(ids).toContain('Pz0GTYMqbWY')
+})

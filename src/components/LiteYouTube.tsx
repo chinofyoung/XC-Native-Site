@@ -21,7 +21,7 @@ export function LiteYouTube({ video }: { video: Video }) {
         <iframe
           className="absolute inset-0 h-full w-full"
           src={`https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1`}
-          title={`${video.device} gameplay video`}
+          title={`${video.device} gameplay video${video.title ? ` — ${video.title}` : ''}`}
           allow="autoplay; encrypted-media; picture-in-picture"
           allowFullScreen
         />
@@ -33,13 +33,23 @@ export function LiteYouTube({ video }: { video: Video }) {
     <button
       type="button"
       onClick={() => setActive(true)}
-      aria-label={`Play ${video.device} video`}
+      aria-label={`Play ${video.device} video${video.title ? ` — ${video.title}` : ''}`}
       className={`${frame} group flex items-center justify-center bg-gradient-to-br from-surface to-background focus-visible:ring-2 focus-visible:ring-accent-cyan focus-visible:outline-none`}
     >
-      <span className="flex size-16 items-center justify-center rounded-full bg-accent-cyan/15 text-accent-cyan ring-1 ring-accent-cyan/50 motion-safe:transition-transform motion-safe:group-hover:scale-110">
+      <img
+        src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
+        alt=""
+        loading="lazy"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" aria-hidden="true" />
+      <span className="relative flex size-16 items-center justify-center rounded-full bg-accent-cyan/15 text-accent-cyan ring-1 ring-accent-cyan/50 motion-safe:transition-transform motion-safe:group-hover:scale-110">
         <Play className="size-7 fill-current" aria-hidden="true" />
       </span>
-      <span className="absolute bottom-3 left-3 font-display text-sm text-foreground">{video.device}</span>
+      <span className="absolute bottom-3 left-3 font-display text-sm text-foreground">
+        {video.device}
+        {video.title ? ` · ${video.title}` : ''}
+      </span>
       <span className="absolute right-3 bottom-3 rounded-full border border-white/15 bg-black/40 px-2 py-0.5 text-xs text-foreground">
         {video.fps}
       </span>

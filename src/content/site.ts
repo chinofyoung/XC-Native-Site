@@ -5,21 +5,30 @@ export const ISSUES_URL = `${REPO_URL}/issues`
 export const UPSTREAM_URL = 'https://github.com/ly05010419/MacNativeGames'
 export const D2R_URL = 'https://github.com/jhaizhou-ops/d2r-mobile'
 
-export type Video = { id: string; device: string; caption: string; fps: string }
+export type Video = { id: string; device: string; caption: string; fps: string; title?: string }
 
-/** Fill in the YouTube ids once the videos are uploaded. */
+/** YouTube ids; an empty id renders a "coming soon" card. */
 export const VIDEOS: Video[] = [
   {
-    id: '',
-    device: 'M1 MacBook Air',
-    caption: 'Early testing on a MacBook Air with M1, 16 GB. The game runs at its own 30 fps.',
+    id: '03pSBNEmmGQ',
+    device: 'iPhone 15 Pro Max',
+    title: 'Gameplay, 0:23',
+    caption:
+      'Experimental, running natively on iPhone 15 Pro Max. First area only: a smooth 30 fps there, and nothing past it has been tested on iPhone.',
+    fps: '30 fps',
+  },
+  {
+    id: 'Pz0GTYMqbWY',
+    device: 'iPhone 15 Pro Max',
+    title: 'Gameplay, 0:44',
+    caption:
+      'Experimental, running natively on iPhone 15 Pro Max. First area only: a smooth 30 fps there, and nothing past it has been tested on iPhone.',
     fps: '30 fps',
   },
   {
     id: '',
-    device: 'iPhone 15 Pro Max',
-    caption:
-      'Experimental. First area only: a smooth 30 fps there, and nothing past it has been tested on iPhone.',
+    device: 'M1 MacBook Air',
+    caption: 'Early testing on a MacBook Air with M1, 16 GB. The game runs at its own 30 fps.',
     fps: '30 fps',
   },
 ]

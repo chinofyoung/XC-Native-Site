@@ -78,6 +78,10 @@ export const IOS_STEPS: Step[] = [
     body: 'On the device, open Settings, General, VPN & Device Management, trust your Apple ID, then launch Xenoblade Chronicles X.',
     note: 'The frame rate can be switched to 60 (experimental) in the iPhone Settings app, under Xenoblade Chronicles X, Frame rate. It is untested on iPhone beyond being available, and it means more heat.',
   },
+  {
+    title: 'Play with touch or a controller',
+    body: 'With no controller connected, on-screen controls laid out like a Switch controller appear automatically. Connect a gamepad and they hide; disconnect it and they come back.',
+  },
 ]
 
 export const CONTROLS: { key: string; switch: string }[] = [
