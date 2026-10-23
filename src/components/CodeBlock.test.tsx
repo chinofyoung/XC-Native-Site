@@ -29,7 +29,9 @@ test('clipboard missing does not throw', async () => {
   await user.click(screen.getByRole('button', { name: /copy/i }))
   expect(await screen.findByText(/copy failed/i)).toBeInTheDocument()
 })
-test('long commands scroll inside the block', () => {
+test('long commands wrap inside the block', () => {
   const { container } = render(<CodeBlock code="x" />)
-  expect(container.querySelector('pre')!.className).toMatch(/overflow-x-auto/)
+  const cls = container.querySelector('pre')!.className
+  expect(cls).toMatch(/whitespace-pre-wrap/)
+  expect(cls).toMatch(/overflow-wrap:anywhere/)
 })

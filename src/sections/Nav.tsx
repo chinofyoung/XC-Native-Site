@@ -17,7 +17,7 @@ export function Nav() {
     >
       <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
         <a href="#top" className="font-display text-sm font-semibold tracking-tight text-foreground sm:text-base">
-          XCX <span className="text-accent-cyan">native</span>
+          XC <span className="text-accent-cyan">Native</span>
         </a>
         <div className="flex items-center gap-1 sm:gap-2">
           <ul className="hidden items-center gap-1 sm:flex">

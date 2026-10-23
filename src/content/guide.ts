@@ -33,10 +33,10 @@ export const MAC_STEPS: Step[] = [
   },
   {
     title: 'Or build with one command',
-    body: 'The same build from the terminal. The first command builds 1.0.1. The second adds the 2.0.0 update NSP and builds 2.0.0.',
+    body: 'The same build from the terminal. The first command builds 1.0.1. The second adds the 2.0.0 update NSP and builds 2.0.0. Replace each <…> with the path to your own file.',
     command: [
-      'python3 build_app.py "<game>.xci" -k prod.keys',
-      'python3 build_app.py "<game>.xci" -k prod.keys --update "<2.0.0 update>.nsp"',
+      'python3 build_app.py "<path to>/<game>.xci" -k "<path to>/prod.keys"',
+      'python3 build_app.py "<path to>/<game>.xci" -k "<path to>/prod.keys" --update "<path to>/<2.0.0 update>.nsp"',
     ],
     note: 'The app is made on your Mac from your own files. Never share it or the work folder.',
   },
@@ -66,7 +66,7 @@ export const IOS_STEPS: Step[] = [
   {
     title: 'Build the IPA',
     body: 'In the builder window pick "iPhone and iPad (experimental)" and press Build IPA, or use the command line.',
-    command: 'python3 build_app.py "<game>.xci" -k prod.keys --platform ios',
+    command: 'python3 build_app.py "<path to>/<game>.xci" -k "<path to>/prod.keys" --platform ios',
   },
   {
     title: 'Install on your device',

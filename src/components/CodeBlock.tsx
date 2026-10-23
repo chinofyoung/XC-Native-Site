@@ -24,7 +24,7 @@ export function CodeBlock({ code, label }: { code: string; label?: string }) {
 
   return (
     <div className="relative rounded-lg border border-white/10 bg-surface">
-      <pre tabIndex={0} aria-label={label ?? 'Command'} className="overflow-x-auto p-4 pr-28 font-mono text-sm text-foreground">
+      <pre tabIndex={0} aria-label={label ?? 'Command'} className="p-4 pr-28 font-mono text-sm whitespace-pre-wrap text-foreground [overflow-wrap:anywhere]">
         <code>{code}</code>
       </pre>
       <div className="absolute top-2 right-2 flex items-center gap-2">

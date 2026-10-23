@@ -14,21 +14,15 @@ export const WORKS: string[] = [
   'Saves write, and Continue loads them',
   'A controller and the Mac keyboard',
   'Runs at the game\'s own 30 fps on an M1 MacBook Air',
+  'Audio plays (the game\'s Wwise output through Core Audio)',
+  'The opening cutscene\'s White Whale renders correctly',
   'Experimental 60 fps option (about 45–57 fps on an M1)',
 ]
 
 export const KNOWN_ISSUES: { title: string; body: string }[] = [
   {
-    title: 'Audio has not been listened to',
-    body: 'The game\'s audio output reaches Core Audio with measured, non-silent levels, but nobody has listened to it yet.',
-  },
-  {
     title: 'Large areas not checked yet',
     body: 'Cities (New Los Angeles), Skells, cutscenes, day-time lighting, water, menus beyond character creation, and a New Game through character creation with the current build.',
-  },
-  {
-    title: 'The White Whale in the opening cutscene',
-    body: 'It shows as a black silhouette with a rim light. It has not been rechecked since the character fix; it may be correct or a rendering bug.',
   },
   {
     title: 'Frame interpolation (key 2)',
