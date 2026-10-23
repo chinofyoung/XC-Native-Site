@@ -58,3 +58,9 @@ test('credits section exists, is linked from nav, and links both upstreams safel
     links.forEach((l) => expect(l).toHaveAttribute('rel', expect.stringContaining('noopener')))
   }
 })
+
+test('status mentions 60 fps and the mac guide mentions the experimental frame rate option', () => {
+  expect(document.getElementById('status')!.textContent).toMatch(/60 fps/)
+  const guide = document.getElementById('guide')!
+  expect(guide.textContent).toMatch(/experimental 60 fps option/i)
+})

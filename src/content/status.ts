@@ -14,6 +14,7 @@ export const WORKS: string[] = [
   'Saves write, and Continue loads them',
   'A controller and the Mac keyboard',
   'Runs at the game\'s own 30 fps on an M1 MacBook Air',
+  'Experimental 60 fps option (about 45–57 fps on an M1)',
 ]
 
 export const KNOWN_ISSUES: { title: string; body: string }[] = [
@@ -32,6 +33,10 @@ export const KNOWN_ISSUES: { title: string; body: string }[] = [
   {
     title: 'Frame interpolation (key 2)',
     body: 'On an M1 it costs more than it gains: the game drops to about 23-27 fps. Moving characters, enemies and rain streaks ghost in the generated frames. It is off at start.',
+  },
+  {
+    title: '60 fps is experimental',
+    body: 'Off by default; 30 fps is the game\'s own and the Mac then runs unpatched code. Checked on 2.0.0 in Primordia at night on an M1 MacBook Air: about 45-57 fps in the field (GPU-limited), with the same walking speed as at 30 fps. Two of the game\'s subsystems step a fixed 1/60 s per frame, so they run slower while below 60 fps. The speed of the time of day could not be checked. Cutscenes, Skells and cities are untested. A fanless Mac or a phone gets hotter.',
   },
   {
     title: 'MetalFX upscaling not checked',

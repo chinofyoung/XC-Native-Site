@@ -42,7 +42,8 @@ export const MAC_STEPS: Step[] = [
   },
   {
     title: 'Play',
-    body: 'Double-click Xenoblade Chronicles X.app. A settings window comes first; press Play. The default preset runs the game\'s own 30 fps in a window.',
+    body: 'Double-click Xenoblade Chronicles X.app. A settings window comes first; press Play. The default preset runs the game\'s own 30 fps in a window. The settings window also has an experimental 60 fps option under Frame rate. It is off by default and reaches about 45-57 fps on an M1.',
+    link: { label: 'The README has the details on 60 fps.', url: README_URL },
     note: 'The first start checks the whole RomFS once, so the first frame takes about 10 seconds. Shaders are translated the first time the game meets them, so the first minutes stutter more than later ones.',
   },
   {
@@ -75,6 +76,7 @@ export const IOS_STEPS: Step[] = [
   {
     title: 'Trust the developer and launch',
     body: 'On the device, open Settings, General, VPN & Device Management, trust your Apple ID, then launch Xenoblade Chronicles X.',
+    note: 'The frame rate can be switched to 60 (experimental) in the iPhone Settings app, under Xenoblade Chronicles X, Frame rate. It is untested on iPhone beyond being available, and it means more heat.',
   },
 ]
 
