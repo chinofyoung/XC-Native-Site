@@ -38,3 +38,23 @@ test('guide switches to iPhone tab and shows experimental', async () => {
 })
 test('footer has the no-affiliation disclaimer', () =>
   expect(screen.getByText(/not affiliated with.*nintendo/i)).toBeInTheDocument())
+
+const UP = 'https://github.com/ly05010419/MacNativeGames'
+const D2R = 'https://github.com/jhaizhou-ops/d2r-mobile'
+test('hero credits MacNativeGames with a link', () => {
+  const hero = document.getElementById('top')!
+  const link = hero.querySelector(`a[href="${UP}"]`)
+  expect(link).not.toBeNull()
+  expect(link).toHaveAttribute('rel', expect.stringContaining('noopener'))
+})
+test('credits section exists, is linked from nav, and links both upstreams safely', () => {
+  const credits = document.getElementById('credits')!
+  expect(credits).not.toBeNull()
+  expect(credits.className).toContain('scroll-mt-20')
+  expect(document.querySelectorAll('nav a[href="#credits"]').length).toBe(2)
+  for (const href of [UP, D2R]) {
+    const links = credits.querySelectorAll(`a[href="${href}"]`)
+    expect(links.length).toBeGreaterThan(0)
+    links.forEach((l) => expect(l).toHaveAttribute('rel', expect.stringContaining('noopener')))
+  }
+})

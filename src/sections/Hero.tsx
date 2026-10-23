@@ -1,8 +1,8 @@
 import { ArrowRight, TriangleAlert } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
-import { KofiButton } from '@/components/ExternalLink'
-import { HERO_IMAGE } from '@/content/site'
+import { ExternalLink, KofiButton } from '@/components/ExternalLink'
+import { HERO_IMAGE, UPSTREAM, UPSTREAM_URL } from '@/content/site'
 import { asset } from '@/lib/asset'
 import { cn } from '@/lib/utils'
 
@@ -44,6 +44,13 @@ export function Hero() {
         </div>
         <p className="mt-8 font-display text-sm tracking-wide text-muted-foreground">
           Mac · iPhone · 30 fps · v1.0.1 / v2.0.0
+        </p>
+        <p className="mt-3 text-sm text-muted-foreground">
+          {UPSTREAM.heroPrefix}{' '}
+          <ExternalLink href={UPSTREAM_URL} className="font-medium text-accent-cyan underline-offset-4 hover:underline">
+            {UPSTREAM.main.name}
+          </ExternalLink>{' '}
+          by {UPSTREAM.author}
         </p>
       </div>
     </header>

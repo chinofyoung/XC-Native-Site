@@ -3,6 +3,7 @@ export const REPO_URL = 'https://github.com/chinofyoung/XC-Native'
 export const README_URL = `${REPO_URL}#readme`
 export const ISSUES_URL = `${REPO_URL}/issues`
 export const UPSTREAM_URL = 'https://github.com/ly05010419/MacNativeGames'
+export const D2R_URL = 'https://github.com/jhaizhou-ops/d2r-mobile'
 
 export type Video = { id: string; device: string; caption: string; fps: string }
 
@@ -54,7 +55,7 @@ export const CREDITS: { name: string; url: string; note: string }[] = [
   },
   {
     name: 'd2r-mobile',
-    url: 'https://github.com/jhaizhou-ops/d2r-mobile',
+    url: D2R_URL,
     note: 'Developed this way of running Switch games natively (MIT).',
   },
   {
@@ -78,3 +79,27 @@ export const CREDITS: { name: string; url: string; note: string }[] = [
     note: 'Decodes the game\'s movies, installed from Homebrew (BSD).',
   },
 ]
+
+export const UPSTREAM = {
+  eyebrow: 'Credits',
+  title: 'Built on MacNativeGames',
+  intro:
+    'XC-Native is a fork of MacNativeGames, released under MIT. It reuses that project\'s runtime, its ahead-of-time code rewriter, its NVN-on-Metal graphics layer and its app. The Xenoblade X port started from its Bayonetta 3 port.',
+  heroPrefix: 'Built on',
+  author: 'ly05010419',
+  main: {
+    name: 'MacNativeGames',
+    by: 'by ly05010419',
+    description: 'Native Apple silicon ports of Tears of the Kingdom, Breath of the Wild and Bayonetta 3',
+    license: 'MIT',
+    cta: 'View on GitHub',
+    url: UPSTREAM_URL,
+  },
+  root: {
+    name: 'd2r-mobile',
+    description: 'MacNativeGames itself builds on d2r-mobile, which developed this way of running Switch games natively.',
+    license: 'MIT',
+    url: D2R_URL,
+  },
+  othersHeading: 'Also built with',
+}

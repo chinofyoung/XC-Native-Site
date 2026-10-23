@@ -1,5 +1,6 @@
 import { BringYourOwn } from '@/sections/BringYourOwn'
 import { Footer } from '@/sections/Footer'
+import { Credits } from '@/sections/Credits'
 import { Guide } from '@/sections/Guide'
 import { Hero } from '@/sections/Hero'
 import { Media } from '@/sections/Media'
@@ -17,6 +18,7 @@ function App() {
         <BringYourOwn />
         <Guide />
         <Status />
+        <Credits />
         <Support />
       </main>
       <Footer />

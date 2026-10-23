@@ -6,6 +6,7 @@ const LINKS = [
   { href: '#guide', label: 'Guide' },
   { href: '#media', label: 'Media' },
   { href: '#status', label: 'Status' },
+  { href: '#credits', label: 'Credits' },
 ]
 
 export function Nav() {
