@@ -1,7 +1,8 @@
-import { Fragment, type ReactNode } from 'react'
+import type { ReactNode } from 'react'
 import { ShieldCheck } from 'lucide-react'
 import { CodeBlock } from '@/components/CodeBlock'
 import { ExternalLink } from '@/components/ExternalLink'
+import { Rich } from '@/components/Rich'
 import { GithubIcon } from '@/components/GithubIcon'
 import { buttonVariants } from '@/components/ui/button'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
@@ -17,28 +18,6 @@ import { cn } from '@/lib/utils'
 import { Footer } from '@/sections/Footer'
 import { Nav } from '@/sections/Nav'
 import { Section } from '@/sections/Section'
-
-/** Renders `code` and **bold** spans in a copy string. */
-function Rich({ text }: { text: string }) {
-  const parts = text.split(/(`[^`]+`|\*\*[^*]+\*\*)/g)
-  return (
-    <>
-      {parts.map((p, i) =>
-        p.startsWith('`') ? (
-          <code key={i} className="rounded bg-white/10 px-1 py-0.5 font-mono text-[0.85em] text-foreground [overflow-wrap:anywhere]">
-            {p.slice(1, -1)}
-          </code>
-        ) : p.startsWith('**') ? (
-          <strong key={i} className="font-semibold text-foreground">
-            {p.slice(2, -2)}
-          </strong>
-        ) : (
-          <Fragment key={i}>{p}</Fragment>
-        ),
-      )}
-    </>
-  )
-}
 
 const P = ({ children }: { children: ReactNode }) => <p className="text-muted-foreground">{children}</p>
 

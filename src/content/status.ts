@@ -17,7 +17,7 @@ export const WORKS: string[] = [
   'Audio plays (the game\'s Wwise output through Core Audio)',
   'The opening cutscene\'s White Whale renders correctly',
   'Every shader in the game is prepared at build time, for Mac and iPhone',
-  'Experimental 60 fps option (about 45–57 fps on an M1)',
+  'Experimental 60 fps option (about 45–57 fps on an M1, 50–58 fps on an iPhone 15 Pro Max)',
 ]
 
 export const KNOWN_ISSUES: { title: string; body: string }[] = [

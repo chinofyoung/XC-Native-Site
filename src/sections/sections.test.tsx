@@ -1,5 +1,4 @@
 import { render, screen, within } from '@testing-library/react'
-import userEvent from '@testing-library/user-event'
 import App from '@/App'
 
 beforeEach(() => {
@@ -31,10 +30,19 @@ test('bring-your-own states ownership and no sharing', () => {
   expect(screen.getByText(/copy you bought/i)).toBeInTheDocument()
   expect(screen.getByText(/never share the built app/i)).toBeInTheDocument()
 })
-test('guide switches to iPhone tab and shows experimental', async () => {
-  await userEvent.click(screen.getByRole('tab', { name: /iphone/i }))
-  expect(within(screen.getByRole('tabpanel')).getAllByText(/experimental/i).length).toBeGreaterThan(0)
-  expect(within(screen.getByRole('tabpanel')).getByText('About the first iPhone build')).toBeInTheDocument()
+test('guide highlights both install guides and links to each page', () => {
+  const guide = document.getElementById('guide')!
+  expect(guide.className).toContain('scroll-mt-20')
+  expect(within(guide).getByRole('heading', { name: 'Install on Mac' })).toBeInTheDocument()
+  expect(within(guide).getByRole('heading', { name: 'Install on iPhone and iPad' })).toBeInTheDocument()
+  expect(within(guide).getByRole('link', { name: /open the mac guide/i })).toHaveAttribute('href', '/XC-Native-Site/mac/')
+  expect(within(guide).getByRole('link', { name: /open the iphone guide/i })).toHaveAttribute('href', '/XC-Native-Site/iphone/')
+  expect(within(guide).getAllByText(/experimental/i).length).toBeGreaterThan(0)
+  expect(guide.querySelector('[role="tab"]')).toBeNull()
+})
+test('hero Start the guide button points at #guide', () => {
+  const hero = document.getElementById('top')!
+  expect(within(hero).getByRole('link', { name: /start the guide/i })).toHaveAttribute('href', '#guide')
 })
 test('footer has the no-affiliation disclaimer', () =>
   expect(screen.getByText(/not affiliated with.*nintendo/i)).toBeInTheDocument())
@@ -59,10 +67,8 @@ test('credits section exists, is linked from nav, and links both upstreams safel
   }
 })
 
-test('status mentions 60 fps and the mac guide mentions the experimental frame rate option', () => {
+test('status mentions 60 fps', () => {
   expect(document.getElementById('status')!.textContent).toMatch(/60 fps/)
-  const guide = document.getElementById('guide')!
-  expect(guide.textContent).toMatch(/experimental 60 fps option/i)
 })
 
 test('media section highlights iPhone touch and gamepad controls', () => {
@@ -95,8 +101,4 @@ test('status lists the New Los Angeles glitch, drops the shader seed issue and h
   expect(KNOWN_ISSUES.map(i => i.title)).toContain('Rendering glitches in New Los Angeles and cutscenes')
   expect(KNOWN_ISSUES.map(i => i.title)).not.toContain('No shader seed yet')
   expect(WORKS).toContain('Every shader in the game is prepared at build time, for Mac and iPhone')
-})
-test('iPhone tab shows About the first iPhone build', async () => {
-  await userEvent.click(screen.getByRole('tab', { name: /iphone/i }))
-  expect(within(screen.getByRole('tabpanel')).getByText('About the first iPhone build')).toBeInTheDocument()
 })

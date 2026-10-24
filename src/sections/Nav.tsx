@@ -12,7 +12,7 @@ const SECTION_LINKS: NavLink[] = [
 ]
 
 /** On the landing page links are plain hashes; on other pages they point back to it. */
-export function Nav({ page = 'home' }: { page?: 'home' | 'sharing' }) {
+export function Nav({ page = 'home' }: { page?: 'home' | 'sharing' | 'mac' | 'iphone' }) {
   const base = import.meta.env.BASE_URL
   const prefix = page === 'home' ? '' : base
   const LINKS: NavLink[] = [
