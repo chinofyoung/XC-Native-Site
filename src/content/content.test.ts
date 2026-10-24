@@ -80,3 +80,11 @@ test('Mac guide warns about interpolation ghosting and early enemy labels', () =
   expect(key2.switch).toMatch(/ghost/)
   expect(key2.switch).toMatch(/half a frame ahead/)
 })
+
+test('iPhone guide warns about the slow first launch', () => {
+  const text = JSON.stringify(IOS_STEPS.find((s) => s.id === 'trust-launch'))
+  expect(text).toMatch(/black screen/i)
+  expect(text).toMatch(/title screen/i)
+  expect(text).toMatch(/only happens on the first launch/i)
+  expect(text).toMatch(/close by itself/i)
+})

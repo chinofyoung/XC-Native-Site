@@ -158,6 +158,11 @@ export const IOS_STEPS: GuideStep[] = [
         kind: 'tip',
         text: 'The first start hashes the game data once against the build\'s checksum and keeps a record.',
       },
+      {
+        kind: 'warning',
+        title: 'Be patient on the first launch',
+        text: 'The first time you open the app, expect a black screen for a while before anything appears. When the title screen shows for the first time, it will not respond to taps or buttons right away: wait a few more seconds. The app may also close by itself during this first launch; just open it again. This usually only happens on the first launch and does not happen again after; later starts are quicker.',
+      },
     ],
   },
   {
@@ -222,6 +227,10 @@ export const IOS_GUIDE: GuidePage = {
   troubleshooting: {
     intro: 'Only problems the project documents. Anything else: open an issue with the last lines of the output.',
     items: [
+      {
+        q: 'Black screen, a slow title screen, or the app closes on the first launch',
+        a: ['This is expected the first time only. The black screen lasts a while before the game appears, and the first title screen needs a few more seconds before it responds. Be patient and wait. The app may also close by itself during the first launch; open it again. It usually does not happen again after that, and later starts are quicker.'],
+      },
       {
         q: 'The install stops at "profile" with "Developer Mode disabled"',
         a: ['Developer Mode is off. Turn it on (Settings › Privacy & Security › Developer Mode), restart, and install again.'],
