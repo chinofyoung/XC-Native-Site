@@ -102,3 +102,10 @@ test('status lists the New Los Angeles glitch, drops the shader seed issue and h
   expect(KNOWN_ISSUES.map(i => i.title)).not.toContain('No shader seed yet')
   expect(WORKS).toContain('Every shader in the game is prepared at build time, for Mac and iPhone')
 })
+
+test('an early-version notice sits right after the hero', () => {
+  const notice = screen.getByRole('complementary', { name: /early version, not thoroughly tested/i })
+  expect(document.getElementById('top')!.nextElementSibling).toBe(notice)
+  expect(within(notice).getByRole('link', { name: /what works/i })).toHaveAttribute('href', '#status')
+  expect(within(notice).getByRole('link', { name: /report a problem/i })).toHaveAttribute('rel', expect.stringContaining('noopener'))
+})

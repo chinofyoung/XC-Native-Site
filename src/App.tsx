@@ -1,4 +1,5 @@
 import { BringYourOwn } from '@/sections/BringYourOwn'
+import { EarlyNotice } from '@/sections/EarlyNotice'
 import { Footer } from '@/sections/Footer'
 import { Credits } from '@/sections/Credits'
 import { Guide } from '@/sections/Guide'
@@ -15,6 +16,7 @@ function App() {
     <>
       <Nav />
       <Hero />
+      <EarlyNotice />
       <main>
         <Media />
         <ShareShaders />

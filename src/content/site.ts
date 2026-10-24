@@ -51,6 +51,12 @@ export const PLAYTHROUGH = {
   cta: 'Ran into something before I got there? Open an issue',
 }
 
+export const EARLY_NOTICE = {
+  title: 'This is an early version, not thoroughly tested yet',
+  body: "Only parts of the game have been played and checked so far, mostly the opening areas. Expect bugs, crashes and graphics problems, especially in places nobody has reached yet. The iPhone build is experimental.",
+  links: { status: 'See what works and what is known to break', issues: 'Report a problem' },
+}
+
 export const GALLERY: Shot[] = [
   {
     file: 'screenshots/xcx-stage5-app-title.webp',
