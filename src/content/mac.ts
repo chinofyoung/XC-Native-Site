@@ -235,7 +235,7 @@ export const CONTROLS: { key: string; switch: string }[] = [
   { key: 'Return', switch: '+' },
   { key: 'Tab, Esc', switch: '−' },
   { key: '1', switch: 'Show or hide the on-screen overlay' },
-  { key: '2', switch: 'Cycle MetalFX frame interpolation (off at start; costs more than it gains on an M1)' },
+  { key: '2', switch: 'Cycle MetalFX frame interpolation (off at start; costs more than it gains on an M1, and causes visual glitches: moving characters, enemies and rain streaks ghost, enemy labels run half a frame ahead)' },
 ]
 
 export const MAC_GUIDE: GuidePage = {
@@ -301,9 +301,9 @@ export const MAC_GUIDE: GuidePage = {
         ],
       },
       {
-        q: 'The frame rate drops after pressing 2',
+        q: 'The frame rate drops, or things ghost, after pressing 2',
         a: [
-          'Key 2 cycles MetalFX frame interpolation. On an M1 it costs more than it gains: with 30+30 the game itself drops to about 23-27 fps. Press 2 until it is off again; it is off at start.',
+          'Key 2 cycles MetalFX frame interpolation. On an M1 it costs more than it gains: with 30+30 the game itself drops to about 23-27 fps. It also causes visual glitches: characters and enemies moving on their own, and rain streaks, ghost in the generated frames, and labels attached to enemies run half a frame ahead. Press 2 until it is off again; it is off at start.',
         ],
       },
       {

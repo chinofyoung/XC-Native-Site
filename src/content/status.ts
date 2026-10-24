@@ -31,7 +31,7 @@ export const KNOWN_ISSUES: { title: string; body: string }[] = [
   },
   {
     title: 'Frame interpolation (key 2)',
-    body: 'On an M1 it costs more than it gains: the game drops to about 23-27 fps. Moving characters, enemies and rain streaks ghost in the generated frames. It is off at start.',
+    body: 'On an M1 it costs more than it gains: the game drops to about 23-27 fps. Moving characters, enemies and rain streaks ghost in the generated frames, and labels attached to enemies run half a frame ahead. It is off at start.',
   },
   {
     title: '60 fps is experimental',

@@ -1,7 +1,7 @@
 import { existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { GALLERY, HERO_IMAGE, VIDEOS, KOFI_URL, CREDITS } from './site'
-import { MAC_STEPS, MAC_GUIDE } from './mac'
+import { MAC_STEPS, MAC_GUIDE, CONTROLS } from './mac'
 import { IOS_STEPS, IOS_GUIDE } from './ios'
 import type { GuideStep } from './guide'
 
@@ -73,4 +73,10 @@ test('every file path in a guide command uses the <path to> placeholder', () => 
 test('iPhone guide is scoped to the iPhone 15 Pro Max and the first area', () => {
   expect(IOS_GUIDE.experimental).toMatch(/iPhone 15 Pro Max, in the first area/)
   expect(IOS_GUIDE.experimental).toMatch(/Nothing past it has been tested on iPhone/)
+})
+
+test('Mac guide warns about interpolation ghosting and early enemy labels', () => {
+  const key2 = CONTROLS.find((c) => c.key === '2')!
+  expect(key2.switch).toMatch(/ghost/)
+  expect(key2.switch).toMatch(/half a frame ahead/)
 })
