@@ -1,7 +1,7 @@
 import { REPO_URL } from './site'
 
 export const SHADER_FORM_URL = `${REPO_URL}/issues/new?template=shader-list.yml`
-export const MAC_CONTRIBUTION_PATH = '~/Library/Application Support/MacNativeGames/XCX/shader-list-contribution.txt'
+export const MAC_CONTRIBUTION_PATH = '~/Library/Application Support/XCNative/XCX/shader-list-contribution.txt'
 export const LIST_DEVICES = 'xcrun devicectl list devices'
 export const IOS_FETCH_COMMAND =
   'XCX_IOS_DEVICE=<id> python3 build_app.py "<path to>/<game>.xci" -k "<path to>/prod.keys" --platform ios'
@@ -98,7 +98,7 @@ export const SHARING = {
     bullets: [
       "`--work` is the work folder of your build (`XCX_build` in the project's top folder unless you picked another).",
       "`<id>` is the phone's id from `xcrun devicectl list devices`.",
-      "`<bundle id>` is the app's name on the phone. An app you installed with your own Apple ID has your team in it, like `org.macnativegames.xcx.<team>`. The install step prints it. Without the right one the tool cannot find the app.",
+      "`<bundle id>` is the app's name on the phone. An app you installed with your own Apple ID has your team in it, like `org.xcnative.xcx.<team>`. The install step prints it. Without the right one the tool cannot find the app.",
     ],
     after:
       'Restart the game afterwards. It picks up the new shaders when it starts. Later builds include them as well. If you have not installed Apple\'s Metal Toolchain, the tool still works, and the phone prepares the shaders a little later. You can install the toolchain with:',

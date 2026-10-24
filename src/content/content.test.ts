@@ -40,3 +40,13 @@ test('VIDEOS contains the two iPhone YouTube ids', () => {
   expect(ids).toContain('03pSBNEmmGQ')
   expect(ids).toContain('Pz0GTYMqbWY')
 })
+
+test('site uses the XCNative folder and app ID, not the old MacNativeGames ones', async () => {
+  const sharing = await import('./sharing')
+  expect(sharing.MAC_CONTRIBUTION_PATH).toBe('~/Library/Application Support/XCNative/XCX/shader-list-contribution.txt')
+  const all = JSON.stringify([sharing, MAC_STEPS, IOS_STEPS])
+  expect(all).not.toMatch(/Application Support\/MacNativeGames|Logs\/MacNativeGames|org\.macnativegames\.xcx/)
+  expect(all).toContain('org.xcnative.xcx.<team>')
+  expect(JSON.stringify(IOS_STEPS)).toMatch(/new one appears as a separate app/)
+  expect(JSON.stringify(MAC_STEPS)).toMatch(/Delete apps built before this update/)
+})

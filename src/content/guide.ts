@@ -38,7 +38,7 @@ export const MAC_STEPS: Step[] = [
       'python3 build_app.py "<path to>/<game>.xci" -k "<path to>/prod.keys"',
       'python3 build_app.py "<path to>/<game>.xci" -k "<path to>/prod.keys" --update "<path to>/<2.0.0 update>.nsp"',
     ],
-    note: 'The app is made on your Mac from your own files. Never share it or the work folder.',
+    note: 'The app is made on your Mac from your own files. Never share it or the work folder. Updating from an earlier version? Rebuild the app; your saves move to the new folder on the first start. Delete apps built before this update.',
   },
   {
     title: 'Play',
@@ -71,7 +71,7 @@ export const IOS_STEPS: Step[] = [
   {
     title: 'Install on your device',
     body: 'In the window\'s "Install on my iPhone or iPad" section, connect your device with a cable, unlock it and tap Trust. Add your Apple ID in Xcode (a free Personal Team works), then install. The window also copies the game data across.',
-    note: 'A free Apple ID signs the app for 7 days, so you re-sign it every 7 days. Your saves are kept.',
+    note: 'A free Apple ID signs the app for 7 days, so you re-sign it every 7 days. Your saves are kept. If you installed an earlier version, the new one appears as a separate app. Installing copies your saves across and copies the game data again (make sure you have 14 GB free). Delete the old app once the new one shows your saves.',
   },
   {
     title: 'Trust the developer and launch',
