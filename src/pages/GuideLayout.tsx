@@ -140,7 +140,7 @@ function StepView({ step, n, extra }: { step: GuideStep; n: number; extra?: Reac
 function Block({ id, title, children }: { id: string; title: string; children: ReactNode }) {
   return (
     <section id={id} aria-labelledby={`${id}-title`} className={cn(ANCHOR, 'py-12 sm:py-16')}>
-      <div className="mx-auto max-w-3xl px-4 sm:px-6">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <h2 id={`${id}-title`} className="text-2xl font-bold tracking-tight sm:text-3xl">
           {title}
         </h2>
@@ -161,10 +161,10 @@ export function GuideLayout({ page, guide: g, extras }: Props) {
     <>
       <Nav page={page} />
       <header id="top" className="border-b border-white/10 pt-14 pb-10 sm:pt-20">
-        <div className="mx-auto max-w-3xl px-4 sm:px-6">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
           <p className="font-display text-xs font-medium tracking-[0.2em] text-accent-cyan uppercase">{g.eyebrow}</p>
           <h1 className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">{g.title}</h1>
-          <p className="mt-4 text-lg text-muted-foreground">{g.summary}</p>
+          <p className="mt-4 max-w-2xl text-lg text-muted-foreground">{g.summary}</p>
           <div className="mt-6 flex flex-wrap gap-2">
             <Badge className="h-7 gap-1.5 border-warning/40 bg-warning/15 px-3 text-sm text-warning">
               <TriangleAlert aria-hidden="true" />
