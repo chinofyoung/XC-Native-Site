@@ -5,6 +5,7 @@ import { Guide } from '@/sections/Guide'
 import { Hero } from '@/sections/Hero'
 import { Media } from '@/sections/Media'
 import { Nav } from '@/sections/Nav'
+import { ShareShaders } from '@/sections/ShareShaders'
 import { Status } from '@/sections/Status'
 import { Support } from '@/sections/Support'
 
@@ -15,6 +16,7 @@ function App() {
       <Hero />
       <main>
         <Media />
+        <ShareShaders />
         <BringYourOwn />
         <Guide />
         <Status />

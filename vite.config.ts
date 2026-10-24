@@ -12,6 +12,14 @@ export default defineConfig({
   resolve: {
     alias: { '@': path.resolve(import.meta.dirname, './src') },
   },
+  build: {
+    rollupOptions: {
+      input: {
+        main: path.resolve(import.meta.dirname, 'index.html'),
+        sharing: path.resolve(import.meta.dirname, 'sharing-shaders/index.html'),
+      },
+    },
+  },
   test: {
     environment: 'jsdom',
     setupFiles: './vitest.setup.ts',

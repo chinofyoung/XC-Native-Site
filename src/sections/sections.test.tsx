@@ -70,3 +70,14 @@ test('media section highlights iPhone touch and gamepad controls', () => {
   expect(within(box).getByText(/on-screen controls laid out like a switch controller appear automatically/i)).toBeInTheDocument()
   expect(within(box).getByText(/connect a gamepad and the on-screen controls hide/i)).toBeInTheDocument()
 })
+
+test('share-shaders section links to the page and the issue form', () => {
+  const s = document.getElementById('share-shaders')!
+  expect(s).not.toBeNull()
+  expect(s.className).toContain('scroll-mt-20')
+  expect(s.querySelector('a[href="/XC-Native-Site/sharing-shaders/"]')).not.toBeNull()
+  const form = s.querySelector('a[href="https://github.com/chinofyoung/XC-Native/issues/new?template=shader-list.yml"]')
+  expect(form).not.toBeNull()
+  expect(form).toHaveAttribute('rel', expect.stringContaining('noopener'))
+  expect(document.querySelectorAll('nav a[href="/XC-Native-Site/sharing-shaders/"]').length).toBe(2)
+})
