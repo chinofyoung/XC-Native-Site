@@ -81,3 +81,11 @@ test('share-shaders section links to the page and the issue form', () => {
   expect(form).toHaveAttribute('rel', expect.stringContaining('noopener'))
   expect(document.querySelectorAll('nav a[href="/XC-Native-Site/sharing-shaders/"]').length).toBe(2)
 })
+
+test('playthrough section explains testing by playing, with an issues link', () => {
+  const s = document.getElementById('playthrough')!
+  expect(within(s).getByRole('heading', { level: 2 })).toHaveTextContent(/playing the game/i)
+  const link = within(s).getByRole('link', { name: /open an issue/i })
+  expect(link).toHaveAttribute('href', 'https://github.com/chinofyoung/XC-Native/issues')
+  expect(link).toHaveAttribute('rel', expect.stringContaining('noopener'))
+})

@@ -41,6 +41,16 @@ export const IOS_CONTROLS = {
   gamepad: 'Connect a gamepad and the on-screen controls hide. Disconnect it and they come back.',
 }
 
+export const PLAYTHROUGH = {
+  eyebrow: 'How it gets tested',
+  title: "I'm playing the game, and fixing things as I go",
+  paragraphs: [
+    "There is no test lab behind this. I'm playing Xenoblade Chronicles X the normal way, on an M1 MacBook Air and an iPhone 15 Pro Max, and when something breaks I stop, fix it in the port, and keep playing.",
+    "That is why the status list below looks the way it does: the parts I've reached work, and the parts I haven't reached yet simply haven't been checked. Each fix lands in the repo, so the next build you make includes it.",
+  ],
+  cta: 'Ran into something before I got there? Open an issue',
+}
+
 export const GALLERY: Shot[] = [
   {
     file: 'screenshots/xcx-stage5-app-title.webp',
