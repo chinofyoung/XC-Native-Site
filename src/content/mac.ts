@@ -335,7 +335,7 @@ export const MAC_GUIDE: GuidePage = {
   },
   related: [
     {
-      title: 'Next: Install on iPhone and iPad',
+      title: 'Next: Install on iPhone',
       body: 'The iPhone build needs everything this Mac setup does, plus a few more tools. Experimental.',
       href: `${base}iphone/`,
     },

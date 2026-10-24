@@ -34,7 +34,7 @@ test('guide highlights both install guides and links to each page', () => {
   const guide = document.getElementById('guide')!
   expect(guide.className).toContain('scroll-mt-20')
   expect(within(guide).getByRole('heading', { name: 'Install on Mac' })).toBeInTheDocument()
-  expect(within(guide).getByRole('heading', { name: 'Install on iPhone and iPad' })).toBeInTheDocument()
+  expect(within(guide).getByRole('heading', { name: 'Install on iPhone' })).toBeInTheDocument()
   expect(within(guide).getByRole('link', { name: /open the mac guide/i })).toHaveAttribute('href', '/XC-Native-Site/mac/')
   expect(within(guide).getByRole('link', { name: /open the iphone guide/i })).toHaveAttribute('href', '/XC-Native-Site/iphone/')
   expect(within(guide).getAllByText(/experimental/i).length).toBeGreaterThan(0)

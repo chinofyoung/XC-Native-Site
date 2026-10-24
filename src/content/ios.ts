@@ -61,7 +61,7 @@ export const IOS_STEPS: GuideStep[] = [
     id: 'build-ipa',
     title: 'Build the IPA',
     body: [
-      'The IPA is the iPhone app file. The build translates the game\'s shaders ahead of time, because an iPhone or iPad cannot translate them while it plays.',
+      'The IPA is the iPhone app file. The build translates the game\'s shaders ahead of time, because an iPhone cannot translate them while it plays.',
     ],
     substeps: [
       'From the XC-Native folder, open the builder window with the command below.',
@@ -92,10 +92,10 @@ export const IOS_STEPS: GuideStep[] = [
     id: 'developer-mode',
     title: 'Turn on Developer Mode',
     body: [
-      'iOS will not run an app you install yourself until Developer Mode is on. Do this on the iPhone or iPad before you install.',
+      'iOS will not run an app you install yourself until Developer Mode is on. Do this on the iPhone before you install.',
     ],
     substeps: [
-      'On the iPhone or iPad open Settings › Privacy & Security › Developer Mode.',
+      'On the iPhone open Settings › Privacy & Security › Developer Mode.',
       'Switch it on and restart.',
       'After the restart, tap **Turn On** when asked and enter your passcode.',
     ],
@@ -204,9 +204,9 @@ export const IOS_STEPS: GuideStep[] = [
 ]
 
 export const IOS_GUIDE: GuidePage = {
-  eyebrow: 'iPhone and iPad guide',
-  title: 'Install on iPhone and iPad',
-  summary: 'Build the app for your iPhone or iPad on your Mac, then install it with a cable and your own Apple ID.',
+  eyebrow: 'iPhone guide',
+  title: 'Install on iPhone',
+  summary: 'Build the app for your iPhone on your Mac, then install it with a cable and your own Apple ID.',
   experimental: EXPERIMENTAL_NOTE,
   time: [
     'The first iPhone build takes about 28 minutes on an M1 while it prepares the shaders; later builds reuse that work. Add the Mac setup first (a clean Mac build takes about 8 minutes).',
@@ -217,7 +217,7 @@ export const IOS_GUIDE: GuidePage = {
       'Everything the Mac guide needs: a Mac with Apple silicon on macOS 26, the tools, about 16 GB free, your game and your keys.',
       'Xcode 26 or later with the iOS SDK, and the iOS platform (Xcode › Settings › Components).',
       'xcodegen and CMake from Homebrew (step 2).',
-      'An iPhone 14 or newer (A15 or later) on iOS 26, or an iPad with an A15 chip or later on iPadOS 26. These are the original project\'s requirements; untested with this game beyond the iPhone 15 Pro Max.',
+      'An iPhone 14 or newer (A15 or later) on **iOS 27**. On iOS 26 the app closes right after it opens; updating to iOS 27 fixes it, no reinstall needed.',
       'A cable to connect the device to your Mac, and your Apple ID (a free Personal Team works).',
       'About 14 GB free on the device for the game data.',
     ],
@@ -227,6 +227,10 @@ export const IOS_GUIDE: GuidePage = {
   troubleshooting: {
     intro: 'Only problems the project documents. Anything else: open an issue with the last lines of the output.',
     items: [
+      {
+        q: 'The app closes as soon as I open it, every time',
+        a: ['Update the iPhone to iOS 27; no reinstall is needed. On iOS 26 the game cannot reserve the one large block of memory addresses it needs (about 61 GB of address space, not RAM), so it closes at start. It does not depend on the iPhone model or how much memory it has.', 'To confirm: in the Files app open On My iPhone › Xenoblade Chronicles X › log.txt. It ends with `FAIL: reserve guest stack, heap and alias regions`.'],
+      },
       {
         q: 'Black screen, a slow title screen, or the app closes on the first launch',
         a: ['This is expected the first time only. The black screen lasts a while before the game appears, and the first title screen needs a few more seconds before it responds. Be patient and wait. The app may also close by itself during the first launch; open it again. It usually does not happen again after that, and later starts are quicker.'],
@@ -300,7 +304,7 @@ export const IOS_GUIDE: GuidePage = {
     },
     {
       title: 'The full README on GitHub',
-      body: 'Every option, the iPhone and iPad details and the known issues.',
+      body: 'Every option, the iPhone details and the known issues.',
       href: README_URL,
       external: true,
     },

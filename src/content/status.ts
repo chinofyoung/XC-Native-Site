@@ -58,7 +58,7 @@ export const KNOWN_ISSUES: { title: string; body: string }[] = [
     body: 'A base NSP with an update NSP has been checked with an update NSP only; the port was played from the XCI.',
   },
   {
-    title: 'iPhone / iPad: experimental',
-    body: 'Runs at 30 fps on an iPhone 15 Pro Max in the first area; nothing past it is tested on iPhone.',
+    title: 'iPhone: experimental',
+    body: 'Runs at 30 fps on an iPhone 15 Pro Max in the first area; nothing past it is tested on iPhone. Needs iOS 27: on iOS 26 the app closes at start.',
   },
 ]

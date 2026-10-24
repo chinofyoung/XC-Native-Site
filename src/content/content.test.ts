@@ -88,3 +88,10 @@ test('iPhone guide warns about the slow first launch', () => {
   expect(text).toMatch(/only happens on the first launch/i)
   expect(text).toMatch(/close by itself/i)
 })
+
+test('iPhone guide requires iOS 27 and explains the iOS 26 close', () => {
+  const all = JSON.stringify(IOS_GUIDE)
+  expect(all).toMatch(/iOS 27/)
+  expect(all).not.toMatch(/on iOS 26, or/)
+  expect(all).toMatch(/FAIL: reserve guest stack, heap and alias regions/)
+})

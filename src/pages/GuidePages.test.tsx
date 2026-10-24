@@ -103,7 +103,7 @@ describe('iPhone page', () => {
   })
 
   test('has the h1, steps in order, troubleshooting and related links', () => {
-    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Install on iPhone and iPad')
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Install on iPhone')
     sharedChecks(IOS_STEPS)
     expect(document.getElementById('related')!.querySelector('a[href="/XC-Native-Site/mac/"]')).not.toBeNull()
   })

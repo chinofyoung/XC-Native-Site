@@ -78,10 +78,10 @@ export const GUIDE_CARDS: GuideCard[] = [
   },
   {
     key: 'iphone',
-    title: 'Install on iPhone and iPad',
+    title: 'Install on iPhone',
     summary:
       'Builds on the Mac setup: your Mac builds the app for the phone, then installs it with a cable and your own Apple ID. Tested only on an iPhone 15 Pro Max, in the first area.',
-    facts: ['iOS 26', 'iPhone 14 or newer, or an iPad with an A15 chip or later', 'A Mac to build from'],
+    facts: ['iOS 27 (iOS 26 is not enough)', 'iPhone 14 or newer', 'A Mac to build from'],
     cta: 'Open the iPhone guide',
     path: 'iphone/',
     experimental: true,

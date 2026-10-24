@@ -20,7 +20,7 @@ export const SHARING = {
   what: {
     title: 'What this is',
     paragraphs: [
-      'A game draws its picture with many small programs called shaders. A Mac makes the ones it needs while you play. An iPhone or iPad cannot do that, so it can only use the shaders that were prepared when the app was built. If one is missing, the game skips that part of the picture, and you may see a character without their clothes.',
+      'A game draws its picture with many small programs called shaders. A Mac makes the ones it needs while you play. An iPhone cannot do that, so it can only use the shaders that were prepared when the app was built. If one is missing, the game skips that part of the picture, and you may see a character without their clothes.',
       "Nobody has played every corner of the game, so nobody's build has every shader. That is why there is a shared list. When you play, the game notes the shaders it met that the list does not have yet. If you share them, they join the list, and everyone's next build prepares them in advance. The more people share, the fewer gaps there are.",
     ],
   },
@@ -42,7 +42,7 @@ export const SHARING = {
     ],
     bullets: [
       '**Mac:** the first preparation took about a minute on an M1 for about 12,400 shaders. The build finds 12,429 shaders in 6,818 game files (12,427 can be prepared) in about 18 seconds. A rebuild with nothing new takes about 2 seconds.',
-      '**iPhone and iPad:** the first iPhone build after this also prepares the shaders for the phone. That took about 28 minutes once. Later builds reuse that work. The app grew from 86 MB to 159 MB and now carries 13,962 shaders.',
+      '**iPhone:** the first iPhone build after this also prepares the shaders for the phone. That took about 28 minutes once. Later builds reuse that work. The app grew from 86 MB to 159 MB and now carries 13,962 shaders.',
       '**A few parts may still be missing at first.** The list only has what players have found so far. On the Mac, anything missing is made while you play. On the iPhone it is skipped until it is on the list. See "Fixing missing parts right now" below.',
     ],
   },
@@ -67,12 +67,12 @@ export const SHARING = {
       ],
     },
     ios: {
-      title: 'On an iPhone or iPad',
+      title: 'On an iPhone',
       intro:
         'The phone keeps its own file. Open the Files app, then On My iPhone, then Xenoblade Chronicles X, and find `shader-list-contribution.txt`. To share it by hand:',
       steps: [
         { text: 'Send the file to your Mac (AirDrop works, or connect with a cable and use Finder\'s file sharing).' },
-        { text: 'Open the form, drag the file in, pick the game version and "iPhone" (or "iPad"), and submit.' },
+        { text: 'Open the form, drag the file in, pick the game version and "iPhone", and submit.' },
       ],
       overlay:
         "The overlay's \"missing\" number tells you when the phone met shaders it does not have.",
@@ -92,7 +92,7 @@ export const SHARING = {
     note: 'You do not need to do anything else, and nobody needs to approve it by hand.',
   },
   fix: {
-    title: 'Fixing missing parts right now (iPhone and iPad)',
+    title: 'Fixing missing parts right now (iPhone)',
     intro:
       'If something is missing on the phone and you do not want to wait for the list, you can send the missing shaders to the phone yourself from your Mac. Connect the phone, unlock it, and run this from the project folder:',
     bullets: [
@@ -153,7 +153,7 @@ export const SHARE_HIGHLIGHT = {
   eyebrow: 'Help fill in the picture',
   title: 'Share the shaders you meet',
   points: [
-    'An iPhone or iPad can only use the shaders prepared when the app was built, and nobody has played every corner of the game. If one is missing, the game skips that part of the picture.',
+    'An iPhone can only use the shaders prepared when the app was built, and nobody has played every corner of the game. If one is missing, the game skips that part of the picture.',
     'You share only a small text file of fingerprints. No game files, no saves, no personal information.',
     "Once the shaders are on the shared list, everyone's next build prepares them in advance.",
   ],
