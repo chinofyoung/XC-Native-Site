@@ -25,7 +25,7 @@ export function Media() {
       id="media"
       eyebrow="See it run"
       title="Running on real hardware"
-      intro="Two videos from the iPhone 15 Pro Max build; a Mac video is on the way. Screenshots below are from the Mac."
+      intro="Videos from the iPhone 15 Pro Max and the M1 MacBook Air builds. Screenshots below are from the Mac."
     >
       <VideoGrid videos={iphone} />
       <aside

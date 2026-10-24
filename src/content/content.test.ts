@@ -95,3 +95,7 @@ test('iPhone guide requires iOS 27 and explains the iOS 26 close', () => {
   expect(all).not.toMatch(/on iOS 26, or/)
   expect(all).toMatch(/FAIL: reserve guest stack, heap and alias regions/)
 })
+
+test('Mac video is set', () => {
+  expect(VIDEOS.find((v) => v.device === 'M1 MacBook Air')!.id).toBe('F66DfFCeHR0')
+})
