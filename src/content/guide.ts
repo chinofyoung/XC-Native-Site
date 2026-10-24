@@ -44,7 +44,7 @@ export const MAC_STEPS: Step[] = [
     title: 'Play',
     body: 'Double-click Xenoblade Chronicles X.app. A settings window comes first; press Play. The default preset runs the game\'s own 30 fps in a window. The settings window also has an experimental 60 fps option under Frame rate. It is off by default and reaches about 45-57 fps on an M1.',
     link: { label: 'The README has the details on 60 fps.', url: README_URL },
-    note: 'The first start checks the whole RomFS once, so the first frame takes about 10 seconds. Shaders are translated the first time the game meets them, so the first minutes stutter more than later ones.',
+    note: 'The first start checks the whole RomFS once, so the first frame takes about 10 seconds. Builds prepare the shaders ahead of time, so only ones nobody has met yet are made while you play (a short stutter).',
   },
   {
     title: 'Controls',
@@ -60,8 +60,8 @@ export const IOS_STEPS: Step[] = [
     note: 'The iPhone and iPad build is experimental. It has only been run on an iPhone 15 Pro Max, in the first area.',
   },
   {
-    title: 'Play the Mac app first',
-    body: 'An iPhone cannot translate the game\'s shaders while it plays. The shaders your Mac translates while you play the Mac app are carried into the IPA, so play for a while before building it.',
+    title: 'About the first iPhone build',
+    body: 'The build prepares every shader in your game plus the shared list. The first iPhone build takes longer (about 28 minutes on an M1) while it prepares the shaders for the phone; later builds reuse that work.',
   },
   {
     title: 'Build the IPA',
@@ -81,6 +81,7 @@ export const IOS_STEPS: Step[] = [
   {
     title: 'Play with touch or a controller',
     body: 'With no controller connected, on-screen controls laid out like a Switch controller appear automatically. Connect a gamepad and they hide; disconnect it and they come back.',
+    note: 'New in the latest build: turn on the FPS display to see how many shaders are ready and whether any are missing (the "missing" number is what you can share). It reads like this: Shaders 12,400 / 13,962   missing 3. The first number is the shaders ready so far (it climbs during startup), the second is all the shaders the app carries, and "missing" counts shaders the game needed that the app does not have.',
   },
 ]
 

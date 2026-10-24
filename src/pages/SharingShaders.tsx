@@ -161,6 +161,9 @@ export function SharingShadersPage() {
               </P>
               <Steps items={how.ios.steps} />
               <P>
+                <Rich text={how.ios.overlay} />
+              </P>
+              <P>
                 <Rich text={how.ios.fetchIntro} />
               </P>
               <CodeBlock code={LIST_DEVICES} label="List devices" />

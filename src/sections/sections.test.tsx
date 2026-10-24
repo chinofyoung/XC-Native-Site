@@ -34,7 +34,7 @@ test('bring-your-own states ownership and no sharing', () => {
 test('guide switches to iPhone tab and shows experimental', async () => {
   await userEvent.click(screen.getByRole('tab', { name: /iphone/i }))
   expect(within(screen.getByRole('tabpanel')).getAllByText(/experimental/i).length).toBeGreaterThan(0)
-  expect(screen.getByText(/play the mac app first/i)).toBeInTheDocument()
+  expect(within(screen.getByRole('tabpanel')).getByText('About the first iPhone build')).toBeInTheDocument()
 })
 test('footer has the no-affiliation disclaimer', () =>
   expect(screen.getByText(/not affiliated with.*nintendo/i)).toBeInTheDocument())
@@ -88,4 +88,15 @@ test('playthrough section explains testing by playing, with an issues link', () 
   const link = within(s).getByRole('link', { name: /open an issue/i })
   expect(link).toHaveAttribute('href', 'https://github.com/chinofyoung/XC-Native/issues')
   expect(link).toHaveAttribute('rel', expect.stringContaining('noopener'))
+})
+
+test('status lists the New Los Angeles glitch, drops the shader seed issue and has the shader works line', async () => {
+  const { KNOWN_ISSUES, WORKS } = await import('@/content/status')
+  expect(KNOWN_ISSUES.map(i => i.title)).toContain('Rendering glitches in New Los Angeles and cutscenes')
+  expect(KNOWN_ISSUES.map(i => i.title)).not.toContain('No shader seed yet')
+  expect(WORKS).toContain('Every shader in the game is prepared at build time, for Mac and iPhone')
+})
+test('iPhone tab shows About the first iPhone build', async () => {
+  await userEvent.click(screen.getByRole('tab', { name: /iphone/i }))
+  expect(within(screen.getByRole('tabpanel')).getByText('About the first iPhone build')).toBeInTheDocument()
 })

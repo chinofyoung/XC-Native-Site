@@ -16,13 +16,18 @@ export const WORKS: string[] = [
   'Runs at the game\'s own 30 fps on an M1 MacBook Air',
   'Audio plays (the game\'s Wwise output through Core Audio)',
   'The opening cutscene\'s White Whale renders correctly',
+  'Every shader in the game is prepared at build time, for Mac and iPhone',
   'Experimental 60 fps option (about 45–57 fps on an M1)',
 ]
 
 export const KNOWN_ISSUES: { title: string; body: string }[] = [
   {
     title: 'Large areas not checked yet',
-    body: 'Cities (New Los Angeles), Skells, cutscenes, day-time lighting, water, menus beyond character creation, and a New Game through character creation with the current build.',
+    body: 'Skells, cutscenes, day-time lighting, water, menus beyond character creation, and a New Game through character creation with the current build.',
+  },
+  {
+    title: 'Rendering glitches in New Los Angeles and cutscenes',
+    body: 'Flickering black shapes come off some objects, and characters\' eyes can disappear during cutscenes (they are fine in character creation). Being investigated.',
   },
   {
     title: 'Frame interpolation (key 2)',
@@ -45,8 +50,8 @@ export const KNOWN_ISSUES: { title: string; body: string }[] = [
     body: 'About a hundred NVN functions the game imports are not implemented. One that is called stops the game with its name in the log; none was reached up to the first battle.',
   },
   {
-    title: 'No shader seed yet',
-    body: 'A new install translates each shader the first time it is drawn, so early play stutters.',
+    title: 'Shaders nobody has shared yet',
+    body: 'Builds prepare every shader in your game plus the shared list. Anything nobody has shared yet is made while you play on the Mac (a short stutter) and skipped on iPhone until someone shares it.',
   },
   {
     title: 'NSP path lightly checked',

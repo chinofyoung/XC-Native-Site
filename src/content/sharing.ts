@@ -41,8 +41,8 @@ export const SHARING = {
       'What to expect:',
     ],
     bullets: [
-      '**Mac:** the first preparation took about a minute on an M1 for about 12,400 shaders. A rebuild with nothing new takes about 2 seconds.',
-      '**iPhone and iPad:** the first iPhone build after this also prepares the shaders for the phone. That took about 28 minutes once. Later builds reuse that work. The app grew from 86 MB to 159 MB.',
+      '**Mac:** the first preparation took about a minute on an M1 for about 12,400 shaders. The build finds 12,429 shaders in 6,818 game files (12,427 can be prepared) in about 18 seconds. A rebuild with nothing new takes about 2 seconds.',
+      '**iPhone and iPad:** the first iPhone build after this also prepares the shaders for the phone. That took about 28 minutes once. Later builds reuse that work. The app grew from 86 MB to 159 MB and now carries 13,962 shaders.',
       '**A few parts may still be missing at first.** The list only has what players have found so far. On the Mac, anything missing is made while you play. On the iPhone it is skipped until it is on the list. See "Fixing missing parts right now" below.',
     ],
   },
@@ -74,6 +74,8 @@ export const SHARING = {
         { text: 'Send the file to your Mac (AirDrop works, or connect with a cable and use Finder\'s file sharing).' },
         { text: 'Open the form, drag the file in, pick the game version and "iPhone" (or "iPad"), and submit.' },
       ],
+      overlay:
+        "The overlay's \"missing\" number tells you when the phone met shaders it does not have.",
       fetchIntro:
         "If you build the iOS app from a Mac with the phone connected, the Mac can fetch the file for you. Set `XCX_IOS_DEVICE` to the phone's id before the build:",
       fetchAfter:
