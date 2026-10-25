@@ -109,3 +109,10 @@ test('an early-version notice sits right after the hero', () => {
   expect(within(notice).getByRole('link', { name: /what works/i })).toHaveAttribute('href', '#status')
   expect(within(notice).getByRole('link', { name: /report a problem/i })).toHaveAttribute('rel', expect.stringContaining('noopener'))
 })
+
+test('the hero key art comes from HERO_ART_URL', async () => {
+  const { HERO_ART_URL } = await import('@/content/site')
+  const art = within(document.getElementById('top')!).getByTestId('hero-art')
+  expect(art.getAttribute('style')).toContain(HERO_ART_URL)
+  expect(art).toHaveAttribute('aria-hidden', 'true')
+})

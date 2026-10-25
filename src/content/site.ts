@@ -76,7 +76,39 @@ export const GALLERY: Shot[] = [
   },
 ]
 
+/** The project's own screenshot. To go back to it, point the hero at `asset(HERO_IMAGE)` instead of HERO_ART_URL. */
 export const HERO_IMAGE = 'screenshots/xcx-stage4-battle.webp'
+
+/**
+ * Hero key art. NOTE: this is official Xenoblade Chronicles X art, loaded from IGN.
+ * It is a design placeholder: swap it for the project's own screenshot (HERO_IMAGE)
+ * before any merge to main.
+ */
+export const HERO_ART_URL =
+  'https://assets-prd.ignimgs.com/2021/12/30/xenoblade-chronicles-x-button-2021-1640846839930.jpg'
+
+/** Hero micro-copy. iPhone claims stay as limited as the rest of the site. */
+export const HERO = {
+  title: 'Xenoblade Chronicles X, native on Apple silicon',
+  sub: 'Native on Apple silicon',
+  spec: '30 FPS · v1.0.1 / v2.0.0',
+  platforms: 'Mac · iPhone',
+  panels: [
+    {
+      title: 'Not an emulator',
+      body: "The game's own code runs directly on Apple silicon. Graphics are drawn with Metal.",
+    },
+    {
+      title: 'Mac + iPhone',
+      body: 'A smooth 30 fps on an M1 MacBook Air. iPhone (experimental) is tested on a 15 Pro Max, in the first area only. 60 fps is experimental.',
+    },
+    {
+      title: 'Bring your own',
+      body: 'Built on your Mac from your own game dump and prod.keys. No game, keys or builds are shared.',
+    },
+  ],
+  early: { label: 'EARLY', note: 'Not thoroughly tested yet', srText: 'Early testing, expect bugs.' },
+}
 
 export const CREDITS: { name: string; url: string; note: string }[] = [
   {

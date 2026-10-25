@@ -6,9 +6,15 @@
 
 @theme inline {
     --font-heading: var(--font-display);
-    --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --font-display: "Saira", ui-sans-serif, system-ui, sans-serif;
+    --font-label: "Michroma", ui-sans-serif, system-ui, sans-serif;
     --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
     --color-surface: var(--surface);
+    --color-deep: var(--deep);
+    --color-ice: var(--ice);
+    --color-steel: var(--steel);
+    --color-teal-dark: var(--teal-dark);
+    --color-panel: var(--panel);
     --color-accent-cyan: var(--accent-cyan);
     --color-warning: var(--warning);
     --color-sidebar-ring: var(--sidebar-ring);
@@ -51,42 +57,53 @@
     --radius-4xl: calc(var(--radius) * 2.6);
 }
 
+/* XC Native palette (from the approved concept). Tokens keep their old names;
+   only the values changed, so bg-background / bg-surface / text-accent-cyan /
+   text-warning and the shadcn components all pick it up. */
 :root {
-    --background: #070b14;
-    --surface: #0d1424;
-    --accent-cyan: #22d3ee;
-    --warning: #f59e0b;
-    --radius: 0.625rem;
-    --foreground: oklch(0.985 0 0);
-    --card: #0d1424;
-    --card-foreground: oklch(0.985 0 0);
-    --popover: #0d1424;
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: #22d3ee;
-    --primary-foreground: #070b14;
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
+    --bg: #081013;
+    --deep: #122229;
+    --ice: #eef6f4;
+    --steel: #4c6b78;
+    --teal-dark: #1f8f8a;
+    --panel: rgba(8, 18, 22, 0.72);
+    --on-teal: #06201d;
+
+    --background: var(--bg);
+    --surface: var(--deep);
+    --accent-cyan: #3fe3d2;
+    --warning: #e8a43c;
+    --radius: 0rem;
+    --foreground: var(--ice);
+    --card: var(--deep);
+    --card-foreground: var(--ice);
+    --popover: #0c1a1f;
+    --popover-foreground: var(--ice);
+    --primary: #3fe3d2;
+    --primary-foreground: var(--on-teal);
+    --secondary: var(--ice);
+    --secondary-foreground: var(--on-teal);
+    --muted: #16303a;
+    --muted-foreground: #a7c0c2;
+    --accent: #16303a;
+    --accent-foreground: var(--ice);
     --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: #22d3ee;
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+    --border: rgba(167, 192, 194, 0.16);
+    --input: rgba(238, 246, 244, 0.35);
+    --ring: #3fe3d2;
+    --chart-1: #3fe3d2;
+    --chart-2: #1f8f8a;
+    --chart-3: #4c6b78;
+    --chart-4: #a7c0c2;
+    --chart-5: #e8a43c;
+    --sidebar: var(--deep);
+    --sidebar-foreground: var(--ice);
+    --sidebar-primary: #3fe3d2;
+    --sidebar-primary-foreground: var(--on-teal);
+    --sidebar-accent: #16303a;
+    --sidebar-accent-foreground: var(--ice);
+    --sidebar-border: rgba(167, 192, 194, 0.16);
+    --sidebar-ring: #3fe3d2;
 }
 
 @layer base {
@@ -102,6 +119,110 @@
   h1, h2, h3 {
     @apply font-display;
     }
+  ::selection {
+    background: rgba(63, 227, 210, 0.35);
+    color: var(--ice);
+  }
+  /* visible focus everywhere, even on elements without their own ring */
+  :focus-visible {
+    outline: 2px solid var(--accent-cyan);
+    outline-offset: 2px;
+  }
+}
+
+/* Cut-corner panel. The clipped fill lives on ::before so focus rings and
+   children (notches, badges) are never clipped. Set --cut and --cut-bg to vary. */
+@utility cut-panel {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--cut-bg, var(--panel));
+    clip-path: polygon(0 0, calc(100% - var(--cut, 22px)) 0, 100% var(--cut, 22px), 100% 100%, 0 100%);
+    pointer-events: none;
+  }
+}
+
+/* Two opposite corners cut, as on the concept's guide cards. */
+@utility cut-panel-2 {
+  position: relative;
+  isolation: isolate;
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: var(--cut-bg, linear-gradient(135deg, #1a3a44, #0c1a1f));
+    clip-path: polygon(
+      0 0,
+      calc(100% - var(--cut, 34px)) 0,
+      100% var(--cut, 34px),
+      100% 100%,
+      var(--cut, 34px) 100%,
+      0 calc(100% - var(--cut, 34px))
+    );
+    pointer-events: none;
+  }
+}
+
+/* Small angular badge (step numbers). */
+@utility cut-badge {
+  clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+}
+
+/* Outlined accent half of a heading. Falls back to plain teal without stroke support. */
+@utility text-outline {
+  color: var(--accent-cyan);
+  @supports (-webkit-text-stroke: 1px black) {
+    color: transparent;
+    -webkit-text-stroke: var(--stroke, 2px) var(--stroke-color, var(--accent-cyan));
+  }
+}
+
+/* Amber hazard stripes for the EARLY box and warnings. */
+@utility hazard-stripes {
+  background: repeating-linear-gradient(-55deg, var(--warning) 0 14px, transparent 14px 28px);
+}
+
+/* Primary CTA: the ice bar to the right of the fill, as in the concept.
+   The bar sits in the element's own margin, so it never causes overflow. */
+@utility cta-bar {
+  position: relative;
+  margin-right: 10px;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: -10px;
+    width: 4px;
+    background: var(--ice);
+    pointer-events: none;
+  }
+}
+
+/* Triangle notches, used as small accents on panels. */
+@utility notch-down {
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 14px solid var(--ice);
+}
+@utility notch-up {
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 14px solid var(--ice);
+}
+
+/* Slate gradient used behind hero bands. */
+@utility bg-slate-band {
+  background: linear-gradient(115deg, #0b171c 0%, #16303a 40%, #0d1d23 100%);
 }
 
 @media (prefers-reduced-motion: no-preference) {

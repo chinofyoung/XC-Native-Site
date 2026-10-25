@@ -15,13 +15,13 @@ export function Gallery({ shots }: { shots: Shot[] }) {
               type="button"
               onClick={() => setOpen(shot)}
               aria-label={shot.alt}
-              className="block w-full overflow-hidden rounded-lg border border-white/10 bg-surface focus-visible:ring-2 focus-visible:ring-accent-cyan focus-visible:outline-none"
+              className="block w-full overflow-hidden border border-border bg-surface hover:border-accent-cyan/60 focus-visible:ring-2 focus-visible:ring-accent-cyan focus-visible:outline-none"
             >
               <img
                 src={asset(shot.file)}
                 alt=""
                 loading="lazy"
-                className="aspect-video w-full object-cover motion-safe:transition-transform motion-safe:hover:scale-105"
+                className="aspect-video w-full object-cover motion-safe:transition-transform motion-safe:hover:scale-[1.03]"
               />
             </button>
           </li>
@@ -32,7 +32,7 @@ export function Gallery({ shots }: { shots: Shot[] }) {
           {open && (
             <>
               <DialogTitle className="sr-only">Screenshot</DialogTitle>
-              <img src={asset(open.file)} alt={open.alt} className="max-h-[70vh] w-full rounded-md object-contain" />
+              <img src={asset(open.file)} alt={open.alt} className="max-h-[70vh] w-full object-contain" />
               <DialogDescription>{open.alt}</DialogDescription>
             </>
           )}

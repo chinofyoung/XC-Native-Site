@@ -3,16 +3,16 @@ import { GuideLayout } from './GuideLayout'
 
 function ControlsTable() {
   return (
-    <div className="overflow-x-auto rounded-lg border border-white/10 bg-surface">
+    <div className="overflow-x-auto border border-border border-l-2 border-l-accent-cyan bg-surface">
       <table className="w-full text-left text-sm">
         <caption className="sr-only">Keyboard controls</caption>
-        <thead className="border-b border-white/10 text-xs tracking-wide text-muted-foreground uppercase">
+        <thead className="border-b border-border font-label text-[10px] tracking-[0.2em] text-muted-foreground uppercase">
           <tr>
             <th scope="col" className="px-4 py-2.5 font-medium">Key</th>
             <th scope="col" className="px-4 py-2.5 font-medium">Switch control</th>
           </tr>
         </thead>
-        <tbody className="divide-y divide-white/5">
+        <tbody className="divide-y divide-border">
           {CONTROLS.map((c) => (
             <tr key={c.key}>
               <th scope="row" className="px-4 py-2.5 font-mono text-xs font-medium whitespace-nowrap text-accent-cyan">
