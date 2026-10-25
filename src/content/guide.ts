@@ -15,6 +15,8 @@ export type GuideStep = {
   body: string[]
   /** The actions, in order, when a step has several. */
   substeps?: string[]
+  /** A screenshot shown after the substeps (path under public/). */
+  image?: { file: string; alt: string; caption?: string }
   commands?: GuideCommand[]
   /** Text after the commands, before "You should see". */
   after?: string[]

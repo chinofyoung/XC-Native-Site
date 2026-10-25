@@ -99,3 +99,19 @@ test('iPhone guide requires iOS 27 and explains the iOS 26 close', () => {
 test('Mac video is set', () => {
   expect(VIDEOS.find((v) => v.device === 'M1 MacBook Air')!.id).toBe('F66DfFCeHR0')
 })
+
+test('iPhone guide explains choosing 30 or 60 fps on the phone', () => {
+  const all = JSON.stringify(IOS_GUIDE)
+  expect(all).toMatch(/every IPA has both/)
+  const step = JSON.stringify(IOS_STEPS.find((x) => x.id === 'frame-rate'))
+  expect(step).toMatch(/\*\*Settings\*\* app/)
+  expect(step).toMatch(/tap \*\*Apps\*\*/)
+  expect(step).toMatch(/\*\*Xenoblade Chronicles X\*\*/)
+  expect(all).toMatch(/Where is the 60 fps option in the builder\?/)
+})
+
+test('60 fps step shows the Settings screenshot', () => {
+  const step = IOS_STEPS.find((x) => x.id === 'frame-rate')!
+  expect(step.image?.file).toBe('screenshots/ios-settings-frame-rate.webp')
+  expect(existsSync(pub(step.image!.file))).toBe(true)
+})

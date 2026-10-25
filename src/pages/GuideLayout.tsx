@@ -5,6 +5,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { CodeBlock } from '@/components/CodeBlock'
 import { ExternalLink } from '@/components/ExternalLink'
 import { Rich } from '@/components/Rich'
+import { asset } from '@/lib/asset'
 import type { GuideCommand, GuideNote, GuidePage, GuideStep } from '@/content/guide'
 import { cn } from '@/lib/utils'
 import { Footer } from '@/sections/Footer'
@@ -90,14 +91,29 @@ function StepView({ step, n, extra }: { step: GuideStep; n: number; extra?: Reac
           </a>
         </h3>
         <Paras items={step.body} />
-        {step.substeps && (
-          <ol className="list-decimal space-y-2 pl-5 text-muted-foreground marker:font-semibold marker:text-accent-cyan">
-            {step.substeps.map((s) => (
-              <li key={s} className="pl-1">
-                <Rich text={s} />
-              </li>
-            ))}
-          </ol>
+        {(step.substeps || step.image) && (
+          <div className={cn(step.image && 'grid items-start gap-6 md:grid-cols-[minmax(0,1fr)_16rem]')}>
+            {step.substeps && (
+              <ol className="list-decimal space-y-2 pl-5 text-muted-foreground marker:font-semibold marker:text-accent-cyan">
+                {step.substeps.map((s) => (
+                  <li key={s} className="pl-1">
+                    <Rich text={s} />
+                  </li>
+                ))}
+              </ol>
+            )}
+            {step.image && (
+              <figure className="space-y-2">
+                <img
+                  src={asset(step.image.file)}
+                  alt={step.image.alt}
+                  loading="lazy"
+                  className="w-full max-w-xs rounded-2xl border border-white/10"
+                />
+                {step.image.caption && <figcaption className="text-sm text-muted-foreground">{step.image.caption}</figcaption>}
+              </figure>
+            )}
+          </div>
         )}
         <Commands items={step.commands} />
         <Paras items={step.after} />

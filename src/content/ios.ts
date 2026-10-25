@@ -171,11 +171,35 @@ export const IOS_STEPS: GuideStep[] = [
     body: [
       'With no controller connected, on-screen controls laid out like a Switch controller appear automatically. Connect a gamepad and they hide; disconnect it and they come back.',
     ],
+  },
+  {
+    id: 'frame-rate',
+    title: 'Optional: switch to 60 fps',
+    body: [
+      'The game runs at its own 30 fps by default. You can switch to 60 fps (experimental) on the iPhone itself: every IPA has both, so the builder does not ask and you never need to rebuild for it.',
+    ],
+    substeps: [
+      'On the iPhone, open the **Settings** app.',
+      'Scroll to the bottom and tap **Apps**.',
+      'Find **Xenoblade Chronicles X** in the list and tap it.',
+      'Under **Frame rate**, pick **60 (experimental)**. To go back, pick **30 (original)**.',
+      'Close the game fully: swipe up from the bottom of the screen and hold to open the app switcher, then swipe the game away.',
+      'Open the game again. The new frame rate only applies after a restart.',
+    ],
+    image: {
+      file: 'screenshots/ios-settings-frame-rate.webp',
+      alt: 'The Xenoblade Chronicles X page in the iPhone Settings app: the language list, then Frame rate with 30 (original) and 60 (experimental), 60 selected.',
+      caption: 'Settings › Apps › Xenoblade Chronicles X, with Frame rate set to 60 (experimental).',
+    },
     notes: [
       {
         kind: 'tip',
-        title: 'Optional: 60 fps',
-        text: 'The frame rate can be switched to 60 (experimental) in the iPhone Settings app, under Xenoblade Chronicles X › Frame rate. On an iPhone 15 Pro Max it reached about 50-58 fps in the field, dropping to 36-45 fps at times when the phone got hot, so it means more heat.',
+        title: 'Not in the list?',
+        text: 'Open the game once, close it, and look in Settings › Apps again.',
+      },
+      {
+        kind: 'warning',
+        text: 'On an iPhone 15 Pro Max, 60 fps reached about 50-58 fps in the field, dropping to 36-45 fps at times when the phone got hot. It means more heat.',
       },
     ],
   },
@@ -282,6 +306,10 @@ export const IOS_GUIDE: GuidePage = {
       {
         q: 'Can I use the iOS Simulator?',
         a: ['No. The graphics layer uses Metal 4, which the Simulator SDK does not have.'],
+      },
+      {
+        q: 'Where is the 60 fps option in the builder?',
+        a: ['There is none, on purpose: every IPA carries both 30 and 60 fps. Choose it on the iPhone: Settings › Apps › Xenoblade Chronicles X › Frame rate, then close the game from the app switcher and open it again.'],
       },
       {
         q: 'Where is the log on the device?',
