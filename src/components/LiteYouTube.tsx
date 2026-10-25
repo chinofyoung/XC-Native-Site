@@ -4,12 +4,12 @@ import type { Video } from '@/content/site'
 
 export function LiteYouTube({ video }: { video: Video }) {
   const [active, setActive] = useState(false)
-  const frame = 'relative aspect-video w-full overflow-hidden rounded-xl border border-white/10 bg-surface'
+  const frame = 'relative aspect-video w-full overflow-hidden border border-border bg-surface'
 
   if (!video.id) {
     return (
       <div className={`${frame} flex flex-col items-center justify-center gap-2 bg-gradient-to-br from-surface to-background`}>
-        <span className="font-display text-sm text-muted-foreground">Video coming soon</span>
+        <span className="font-label text-xs tracking-[0.2em] text-muted-foreground uppercase">Video coming soon</span>
         <span className="text-xs text-muted-foreground/70">{video.device}</span>
       </div>
     )
@@ -34,7 +34,7 @@ export function LiteYouTube({ video }: { video: Video }) {
       type="button"
       onClick={() => setActive(true)}
       aria-label={`Play ${video.device} video${video.title ? ` — ${video.title}` : ''}`}
-      className={`${frame} group flex items-center justify-center bg-gradient-to-br from-surface to-background focus-visible:ring-2 focus-visible:ring-accent-cyan focus-visible:outline-none`}
+      className={`${frame} group flex items-center justify-center bg-gradient-to-br from-surface to-background hover:border-accent-cyan/60 focus-visible:ring-2 focus-visible:ring-accent-cyan focus-visible:outline-none`}
     >
       <img
         src={`https://i.ytimg.com/vi/${video.id}/hqdefault.jpg`}
@@ -43,14 +43,14 @@ export function LiteYouTube({ video }: { video: Video }) {
         className="absolute inset-0 h-full w-full object-cover"
       />
       <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-black/10" aria-hidden="true" />
-      <span className="relative flex size-16 items-center justify-center rounded-full bg-accent-cyan/15 text-accent-cyan ring-1 ring-accent-cyan/50 motion-safe:transition-transform motion-safe:group-hover:scale-110">
-        <Play className="size-7 fill-current" aria-hidden="true" />
+      <span className="cut-badge relative flex size-16 items-center justify-center bg-accent-cyan text-[#06201d] motion-safe:transition-transform motion-safe:group-hover:scale-105">
+        <Play className="ml-0.5 size-7 fill-current" aria-hidden="true" />
       </span>
-      <span className="absolute bottom-3 left-3 font-display text-sm text-foreground">
+      <span className="absolute bottom-3 left-3 font-display text-sm font-semibold tracking-[0.06em] text-foreground uppercase">
         {video.device}
         {video.title ? ` · ${video.title}` : ''}
       </span>
-      <span className="absolute right-3 bottom-3 rounded-full border border-white/15 bg-black/40 px-2 py-0.5 text-xs text-foreground">
+      <span className="absolute right-3 bottom-3 border border-accent-cyan/50 bg-black/50 px-2 py-0.5 font-label text-[10px] tracking-[0.15em] text-accent-cyan uppercase">
         {video.fps}
       </span>
     </button>

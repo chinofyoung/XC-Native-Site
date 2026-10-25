@@ -7,7 +7,7 @@ export function Rich({ text }: { text: string }) {
     <>
       {parts.map((p, i) =>
         p.startsWith('`') ? (
-          <code key={i} className="rounded bg-white/10 px-1 py-0.5 font-mono text-[0.85em] text-foreground [overflow-wrap:anywhere]">
+          <code key={i} className="bg-accent-cyan/10 px-1 py-0.5 font-mono text-[0.85em] text-foreground [overflow-wrap:anywhere]">
             {p.slice(1, -1)}
           </code>
         ) : p.startsWith('**') ? (

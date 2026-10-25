@@ -7,26 +7,20 @@ import { Section } from './Section'
 
 export function ShareShaders() {
   return (
-    <Section id="share-shaders" eyebrow={H.eyebrow} title={H.title}>
-      <ul className="max-w-2xl list-disc space-y-3 pl-5 text-muted-foreground marker:text-accent-cyan">
+    <Section id="share-shaders" eyebrow={H.eyebrow} title={H.title} accent="you meet">
+      <ul className="max-w-2xl space-y-3 text-muted-foreground">
         {H.points.map((p) => (
-          <li key={p}>{p}</li>
+          <li key={p} className="flex gap-3">
+            <span aria-hidden="true" className="mt-2 size-2 shrink-0 rotate-45 bg-accent-cyan" />
+            <span>{p}</span>
+          </li>
         ))}
       </ul>
-      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-        <a
-          href={`${import.meta.env.BASE_URL}sharing-shaders/`}
-          className={cn(
-            buttonVariants({ size: 'lg' }),
-            'h-11 bg-accent-cyan px-5 text-base font-semibold text-background hover:bg-accent-cyan/85',
-          )}
-        >
+      <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row">
+        <a href={`${import.meta.env.BASE_URL}sharing-shaders/`} className={buttonVariants({ size: 'lg' })}>
           How sharing works
         </a>
-        <ExternalLink
-          href={SHADER_FORM_URL}
-          className={cn(buttonVariants({ size: 'lg', variant: 'outline' }), 'h-11 px-5 text-base')}
-        >
+        <ExternalLink href={SHADER_FORM_URL} className={cn(buttonVariants({ size: 'lg', variant: 'outline' }))}>
           <GithubIcon className="size-4" />
           Share on GitHub
         </ExternalLink>

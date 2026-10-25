@@ -4,6 +4,7 @@ import { CodeBlock } from '@/components/CodeBlock'
 import { ExternalLink } from '@/components/ExternalLink'
 import { Rich } from '@/components/Rich'
 import { GithubIcon } from '@/components/GithubIcon'
+import { PageHero } from '@/components/PageHero'
 import { buttonVariants } from '@/components/ui/button'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import {
@@ -23,10 +24,13 @@ const P = ({ children }: { children: ReactNode }) => <p className="text-muted-fo
 
 function Bullets({ items }: { items: string[] }) {
   return (
-    <ul className="list-disc space-y-2 pl-5 text-muted-foreground marker:text-accent-cyan">
+    <ul className="space-y-2 text-muted-foreground">
       {items.map((b) => (
-        <li key={b}>
-          <Rich text={b} />
+        <li key={b} className="flex gap-3">
+          <span aria-hidden="true" className="mt-2 size-2 shrink-0 rotate-45 bg-accent-cyan" />
+          <span className="min-w-0">
+            <Rich text={b} />
+          </span>
         </li>
       ))}
     </ul>
@@ -38,8 +42,8 @@ function Steps({ items }: { items: { text: string; code?: string }[] }) {
     <ol className="space-y-4">
       {items.map((s, i) => (
         <li key={s.text} className="flex gap-3">
-          <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-accent-cyan/15 font-display text-xs font-semibold text-accent-cyan">
-            {i + 1}
+          <span className="cut-badge mt-0.5 flex size-8 shrink-0 items-center justify-center bg-[#16303a] font-display text-sm font-black text-accent-cyan italic">
+            {String(i + 1).padStart(2, '0')}
           </span>
           <div className="min-w-0 flex-1 space-y-3 text-muted-foreground">
             <p>
@@ -57,11 +61,7 @@ export function ShareOnGithubButton({ className }: { className?: string }) {
   return (
     <ExternalLink
       href={SHADER_FORM_URL}
-      className={cn(
-        buttonVariants({ size: 'lg' }),
-        'h-11 bg-accent-cyan px-5 text-base font-semibold text-background hover:bg-accent-cyan/85',
-        className,
-      )}
+      className={cn(buttonVariants({ size: 'lg' }), className)}
     >
       <GithubIcon className="size-4" />
       Share on GitHub
@@ -74,26 +74,19 @@ export function SharingShadersPage() {
   return (
     <>
       <Nav page="sharing" />
-      <header id="top" className="pt-14 pb-4 sm:pt-20">
-        <div className="mx-auto max-w-6xl px-4 sm:px-6">
-          <p className="font-display text-xs font-medium tracking-[0.2em] text-accent-cyan uppercase">Help fill in the picture</p>
-          <h1 className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl">{S.title}</h1>
-          <p className="mt-4 max-w-2xl text-lg text-muted-foreground">{S.lead}</p>
-          <aside
-            aria-label="What leaves your machine"
-            className="mt-8 flex max-w-2xl gap-3 rounded-xl border border-accent-cyan/30 bg-surface p-5"
-          >
-            <ShieldCheck aria-hidden className="mt-0.5 size-5 shrink-0 text-accent-cyan" />
-            <div>
-              <h2 className="font-semibold">{S.reassurance.title}</h2>
-              <p className="mt-1 text-sm text-muted-foreground">{S.reassurance.body}</p>
-            </div>
-          </aside>
-          <div className="mt-6">
-            <ShareOnGithubButton />
+      <PageHero eyebrow="Help fill in the picture" title={S.title}>
+        <p className="mt-5 max-w-2xl text-lg text-ice/85">{S.lead}</p>
+        <aside aria-label="What leaves your machine" className="cut-panel mt-8 flex max-w-2xl gap-3 p-5 sm:p-6">
+          <ShieldCheck aria-hidden className="mt-0.5 size-5 shrink-0 text-accent-cyan" />
+          <div>
+            <h2 className="font-display text-lg font-semibold tracking-[0.04em] uppercase">{S.reassurance.title}</h2>
+            <p className="mt-1 text-sm text-muted-foreground">{S.reassurance.body}</p>
           </div>
+        </aside>
+        <div className="mt-6">
+          <ShareOnGithubButton />
         </div>
-      </header>
+      </PageHero>
       <main>
         <Section id="what" eyebrow="Part 1" title={S.what.title}>
           <div className="max-w-2xl space-y-4">
@@ -127,14 +120,14 @@ export function SharingShadersPage() {
         <Section id="how" eyebrow="Part 4" title={how.title} intro={how.intro}>
           <div className="grid gap-10 lg:grid-cols-2">
             <div className="min-w-0 space-y-5">
-              <h3 className="text-xl font-semibold">{how.mac.title}</h3>
+              <h3 className="font-display text-xl font-semibold tracking-[0.04em] uppercase">{how.mac.title}</h3>
               <Steps items={how.mac.steps} />
               {how.mac.after.map((t) => (
                 <P key={t}>{t}</P>
               ))}
             </div>
             <div className="min-w-0 space-y-5">
-              <h3 className="text-xl font-semibold">{how.ios.title}</h3>
+              <h3 className="font-display text-xl font-semibold tracking-[0.04em] uppercase">{how.ios.title}</h3>
               <P>
                 <Rich text={how.ios.intro} />
               </P>
@@ -175,7 +168,7 @@ export function SharingShadersPage() {
         </Section>
 
         <Section id="questions" eyebrow="Part 7" title={questions.title}>
-          <Accordion className="max-w-2xl">
+          <Accordion className="max-w-2xl border-l-2 border-accent-cyan/50 bg-surface px-5">
             {questions.items.map((it) => (
               <AccordionItem key={it.q} value={it.q}>
                 <AccordionTrigger className="text-base">{it.q}</AccordionTrigger>

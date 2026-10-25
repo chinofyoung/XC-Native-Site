@@ -23,12 +23,12 @@ export function CodeBlock({ code, label }: { code: string; label?: string }) {
   }
 
   return (
-    <div className="relative rounded-lg border border-white/10 bg-surface">
-      <pre tabIndex={0} aria-label={label ?? 'Command'} className="p-4 pr-28 font-mono text-sm whitespace-pre-wrap text-foreground [overflow-wrap:anywhere]">
+    <div className="relative border border-border border-l-2 border-l-accent-cyan bg-[#050c0e]">
+      <pre tabIndex={0} aria-label={label ?? 'Command'} className="p-4 pr-28 font-mono text-sm whitespace-pre-wrap text-ice [overflow-wrap:anywhere]">
         <code>{code}</code>
       </pre>
       <div className="absolute top-2 right-2 flex items-center gap-2">
-        <span role="status" className="text-xs text-muted-foreground">
+        <span role="status" className="text-[11px] tracking-[0.12em] text-accent-cyan uppercase">
           {status === 'copied' ? 'Copied' : status === 'failed' ? 'Copy failed' : ''}
         </span>
         <Button type="button" variant="ghost" size="icon-sm" onClick={copy} aria-label="Copy command">

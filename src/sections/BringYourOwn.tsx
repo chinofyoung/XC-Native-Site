@@ -1,6 +1,8 @@
 import { ExternalLink } from '@/components/ExternalLink'
+import { DISPLAY_HEADING, Eyebrow, OutlinedTitle, Shard } from '@/components/Brand'
 import { README_URL } from '@/content/site'
 import { FileDigit, KeyRound, Package, ShieldAlert } from 'lucide-react'
+import { cn } from '@/lib/utils'
 
 const NEEDS = [
   {
@@ -24,27 +26,26 @@ export function BringYourOwn() {
   return (
     <section className="scroll-mt-20 pb-4" aria-labelledby="byo-title">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
-        <div className="rounded-2xl border border-accent-cyan/30 bg-surface p-6 shadow-[0_0_60px_-20px_rgba(34,211,238,0.35)] sm:p-10">
-          <p className="font-display text-xs font-medium tracking-[0.2em] text-accent-cyan uppercase">
-            Before you start
-          </p>
-          <h2 id="byo-title" className="mt-3 text-3xl font-bold tracking-tight">
-            Bring your own game
+        <div className="cut-panel-2 overflow-hidden p-6 [--cut:28px] sm:p-10 sm:[--cut:40px]">
+          <Shard withTip={false} className="absolute -top-6 -right-10 w-56 opacity-[0.07] sm:w-80" />
+          <Eyebrow>Before you start</Eyebrow>
+          <h2 id="byo-title" className={cn(DISPLAY_HEADING, 'mt-3 text-[clamp(2rem,6vw,3.5rem)]')}>
+            <OutlinedTitle text="Bring your own game" accent="your own game" />
           </h2>
-          <p className="mt-4 max-w-2xl text-muted-foreground">
+          <p className="mt-5 max-w-2xl text-muted-foreground">
             This project ships no game, no keys and no builds. You make the app yourself, on your own machine, from a
             game you own and keys from your own Switch.
           </p>
           <ul className="mt-8 grid gap-4 md:grid-cols-3">
             {NEEDS.map(({ icon: Icon, title, body }) => (
-              <li key={title} className="rounded-xl border border-white/10 bg-background/60 p-5">
+              <li key={title} className="cut-panel p-5 [--cut:16px]">
                 <Icon className="size-6 text-accent-cyan" aria-hidden="true" />
-                <h3 className="mt-4 font-semibold">{title}</h3>
+                <h3 className="mt-4 font-display text-lg font-semibold tracking-[0.04em] uppercase">{title}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{body}</p>
               </li>
             ))}
           </ul>
-          <div className="mt-8 flex gap-3 rounded-xl border border-white/10 bg-background/60 p-5">
+          <div className="mt-8 flex gap-3 border-l-2 border-accent-cyan bg-background/60 p-5">
             <ShieldAlert className="mt-0.5 size-5 shrink-0 text-accent-cyan" aria-hidden="true" />
             <div className="space-y-2 text-sm">
               <p>
