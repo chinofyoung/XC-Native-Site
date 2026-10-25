@@ -80,9 +80,8 @@ export const GALLERY: Shot[] = [
 export const HERO_IMAGE = 'screenshots/xcx-stage4-battle.webp'
 
 /**
- * Hero key art. NOTE: this is official Xenoblade Chronicles X art, loaded from IGN.
- * It is a design placeholder: swap it for the project's own screenshot (HERO_IMAGE)
- * before any merge to main.
+ * Hero key art: official Xenoblade Chronicles X art, loaded from IGN. Kept on purpose
+ * by the owner; HERO_IMAGE is the project's own screenshot if it ever needs swapping.
  */
 export const HERO_ART_URL =
   'https://assets-prd.ignimgs.com/2021/12/30/xenoblade-chronicles-x-button-2021-1640846839930.jpg'
