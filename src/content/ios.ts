@@ -292,9 +292,11 @@ export const IOS_GUIDE: GuidePage = {
         ],
       },
       {
-        q: 'The new version appeared next to the old app',
+        q: 'The update appeared as a second app, or the install failed with ApplicationVerificationFailed',
         a: [
-          'iOS treats the new app ID as another app. The first install of the new one copies the old app\'s saves, shader cache, shader list contribution, shader requests and Settings choices over, unless the new app already has saves. If the copy fails it says how to copy the `save` folder by hand in Finder or the Files app, and the next install tries again. The old app and its data are left alone: delete it once the new one shows your saves.',
+          'An update installs over the app already on the phone, including one installed under the old name from before the XCNative rename, so saves and the game data stay and no extra app slot is used. The install tool finds the old app on its own. Keep the phone unlocked while it runs: on a locked phone it cannot see the old app and installs under the new name.',
+          'A free Apple ID allows 3 sideloaded apps, and `ApplicationVerificationFailed` (0xE8008021) means that limit was hit. Do not delete the old install to make room: deleting an app deletes its saves. Remove another sideloaded app instead.',
+          'If you already have both apps from an earlier install, the new one copied your saves over the first time it was installed. Check that your saves are there before you delete the old one.',
         ],
       },
       {
