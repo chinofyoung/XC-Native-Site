@@ -27,7 +27,7 @@ export const KNOWN_ISSUES: { title: string; body: string }[] = [
   },
   {
     title: 'Rendering glitches in New Los Angeles and cutscenes',
-    body: 'Flickering black shapes come off some objects, and characters\' eyes can disappear during cutscenes (they are fine in character creation). For single frames a large flat box or green streaks can also appear (seen at Bianno Lake at night with 60 fps on), and some menus flicker. Possible fixes shipped on 2026-10-25 are not play-tested yet. Being investigated.',
+    body: 'Flickering black shapes come off some objects, and characters\' eyes can disappear during cutscenes (they are fine in character creation). At 60 fps, fixes from 2026-10-25 made the flicker much rarer (play-tested on Mac). Thin black lines or small white or black flashes still appear for a split second now and then, at 60 fps and, rarely, at 30 fps. In field battles, single frames could show a mesh stretched toward another object; a fix from 2026-10-27 removed it (play-tested on Mac at 60 fps), and building the app again gets it. Being investigated.',
   },
   {
     title: 'Frame interpolation (key 2)',
