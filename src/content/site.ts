@@ -31,6 +31,12 @@ export const VIDEOS: Video[] = [
     caption: 'Early testing on a MacBook Air with M1, 16 GB. The game runs at its own 30 fps.',
     fps: '30 fps',
   },
+  {
+    id: 'WeeY_6jE64Q',
+    device: 'M1 MacBook Air',
+    caption: 'Running natively on macOS, MacBook Air with M1. The game runs at its own 30 fps.',
+    fps: '30 fps',
+  },
 ]
 
 export type Shot = { file: string; alt: string }

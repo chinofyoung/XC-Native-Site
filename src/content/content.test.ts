@@ -115,3 +115,7 @@ test('60 fps step shows the Settings screenshot', () => {
   expect(step.image?.file).toBe('screenshots/ios-settings-frame-rate.webp')
   expect(existsSync(pub(step.image!.file))).toBe(true)
 })
+
+test('second Mac video is set', () => {
+  expect(VIDEOS.map((v) => v.id)).toContain('WeeY_6jE64Q')
+})
