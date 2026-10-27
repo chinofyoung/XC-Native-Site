@@ -34,8 +34,8 @@ export const VIDEOS: Video[] = [
   {
     id: 'WeeY_6jE64Q',
     device: 'M1 MacBook Air',
-    caption: 'Running natively on macOS, MacBook Air with M1. The game runs at its own 30 fps.',
-    fps: '30 fps',
+    caption: 'Running natively on macOS, MacBook Air with M1, at 50 to 60 fps.',
+    fps: '50-60 fps',
   },
 ]
 
