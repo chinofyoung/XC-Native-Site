@@ -161,7 +161,7 @@ export const IOS_STEPS: GuideStep[] = [
       {
         kind: 'warning',
         title: 'Be patient on the first launch',
-        text: 'The first time you open the app, expect a black screen for a while before anything appears. When the title screen shows for the first time, it will not respond to taps or buttons right away: wait a few more seconds. The app may also close by itself during this first launch; just open it again. This usually only happens on the first launch and does not happen again after; later starts are quicker.',
+        text: 'The first time you tap **Play**, expect a black screen for a while before anything appears. When the title screen shows for the first time, it will not respond to taps or buttons right away: wait a few more seconds. The app may also close by itself during this first launch; just open it again. This usually only happens on the first launch and does not happen again after; later starts are quicker.',
       },
     ],
   },
@@ -257,8 +257,8 @@ export const IOS_GUIDE: GuidePage = {
         a: ['Update the iPhone to iOS 27; no reinstall is needed. On iOS 26 the game cannot reserve the one large block of memory addresses it needs (about 61 GB of address space, not RAM), so it closes at start. It does not depend on the iPhone model or how much memory it has.', 'To confirm: in the Files app open On My iPhone › Xenoblade Chronicles X › log.txt. It ends with `FAIL: reserve guest stack, heap and alias regions`.'],
       },
       {
-        q: 'Black screen, a slow title screen, or the app closes on the first launch',
-        a: ['This is expected the first time only. The black screen lasts a while before the game appears, and the first title screen needs a few more seconds before it responds. Be patient and wait. The app may also close by itself during the first launch; open it again. It usually does not happen again after that, and later starts are quicker.'],
+        q: 'Black screen after Play, a slow title screen, or the app closes on the first launch',
+        a: ['This is expected the first time only. After you tap **Play**, the black screen lasts a while before the game appears, and the first title screen needs a few more seconds before it responds. Be patient and wait. The app may also close by itself during the first launch; open it again. It usually does not happen again after that, and later starts are quicker.'],
       },
       {
         q: 'The install stops at "profile" with "Developer Mode disabled"',
