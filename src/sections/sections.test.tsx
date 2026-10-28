@@ -22,8 +22,9 @@ test('nav anchors match section ids', () => {
     expect(document.getElementById(id)).not.toBeNull()
     expect(document.getElementById(id)!.className).toContain('scroll-mt-20')
   }
-  for (const id of ['media', 'guide', 'status']) {
-    expect(document.querySelector(`nav a[href="#${id}"]`)).not.toBeNull()
+  const sections = document.getElementById('section-nav')!
+  for (const id of ['media', 'guide', 'status', 'credits']) {
+    expect(sections.querySelector(`a[href="#${id}"]`)).not.toBeNull()
   }
 })
 test('bring-your-own states ownership and no sharing', () => {
@@ -40,9 +41,9 @@ test('guide highlights both install guides and links to each page', () => {
   expect(within(guide).getAllByText(/experimental/i).length).toBeGreaterThan(0)
   expect(guide.querySelector('[role="tab"]')).toBeNull()
 })
-test('hero Start the guide button points at #guide', () => {
-  const hero = document.getElementById('top')!
-  expect(within(hero).getByRole('link', { name: /start the guide/i })).toHaveAttribute('href', '#guide')
+test('nav Start the guide button points at #guide', () => {
+  const nav = screen.getByRole('navigation', { name: 'Main' })
+  expect(within(nav).getByRole('link', { name: /start the guide/i })).toHaveAttribute('href', '#guide')
 })
 test('footer has the no-affiliation disclaimer', () =>
   expect(screen.getByText(/not affiliated with.*nintendo/i)).toBeInTheDocument())
@@ -59,7 +60,7 @@ test('credits section exists, is linked from nav, and links both upstreams safel
   const credits = document.getElementById('credits')!
   expect(credits).not.toBeNull()
   expect(credits.className).toContain('scroll-mt-20')
-  expect(document.querySelectorAll('nav a[href="#credits"]').length).toBe(2)
+  expect(document.querySelectorAll('nav a[href="#credits"]').length).toBe(1)
   for (const href of [UP, D2R]) {
     const links = credits.querySelectorAll(`a[href="${href}"]`)
     expect(links.length).toBeGreaterThan(0)
@@ -92,9 +93,7 @@ test('nav links to the Moving saves page', () => {
   const nav = screen.getByRole('navigation', { name: 'Main' })
   const links = nav.querySelectorAll('a[href="/XC-Native-Site/moving-saves/"]')
   expect(links.length).toBe(2)
-  const labels = Array.from(links).map((l) => l.textContent)
-  expect(labels[0]).toContain('Move saves')
-  expect(labels[1]).toBe('Saves')
+  expect(Array.from(links).every((l) => l.textContent === 'Move saves')).toBe(true)
 })
 
 test('nav links to the Fixes page, and the known issues point to it', () => {
@@ -136,4 +135,26 @@ test('the hero key art comes from HERO_ART_URL', async () => {
   const art = within(document.getElementById('top')!).getByTestId('hero-art')
   expect(art.getAttribute('style')).toContain(HERO_ART_URL)
   expect(art).toHaveAttribute('aria-hidden', 'true')
+})
+
+test('main nav has only page links; the section anchors are in their own Sections nav', () => {
+  const main = screen.getByRole('navigation', { name: 'Main' })
+  for (const id of ['media', 'status', 'credits']) {
+    expect(main.querySelector(`a[href="#${id}"]`)).toBeNull()
+  }
+  // the only hash links left in the main bar are the logo and the Start the guide button (no Guide text link)
+  expect(within(main).queryByRole('link', { name: /^guide$/i })).toBeNull()
+  const hashes = Array.from(main.querySelectorAll('a[href^="#"]')).map((a) => a.getAttribute('href'))
+  expect(hashes.sort()).toEqual(['#guide', '#top'])
+  expect(within(main).getByRole('link', { name: /start the guide/i })).toHaveAttribute('href', '#guide')
+  expect(main.querySelector('[aria-current]')).toBeNull()
+
+  const sections = screen.getByRole('navigation', { name: 'Sections', hidden: true })
+  expect(main.contains(sections)).toBe(false)
+  expect(Array.from(sections.querySelectorAll('a')).map((a) => [a.textContent, a.getAttribute('href')])).toEqual([
+    ['Guide', '#guide'],
+    ['Media', '#media'],
+    ['Status', '#status'],
+    ['Credits', '#credits'],
+  ])
 })

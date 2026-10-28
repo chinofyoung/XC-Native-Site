@@ -13,7 +13,7 @@ import { Support } from '@/sections/Support'
 function App() {
   return (
     <>
-      {/* the Nav lives inside the Hero, over the key art */}
+      {/* the Hero renders the Nav; its fixed bars are portalled to <body> and sit over the key art */}
       <Hero />
       <EarlyNotice />
       <main>

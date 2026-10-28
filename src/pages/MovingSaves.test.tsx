@@ -95,3 +95,12 @@ test('nav links to the landing page and to this page', () => {
 test('no em dashes in the copy', () => {
   expect(JSON.stringify(SAVES)).not.toContain('—')
 })
+
+test('nav marks this page as current and has no section bar', () => {
+  const nav = screen.getByRole('navigation', { name: 'Main' })
+  const current = nav.querySelectorAll('[aria-current="page"]')
+  expect(current.length).toBe(2)
+  current.forEach((a) => expect(a).toHaveAttribute('href', '/XC-Native-Site/moving-saves/'))
+  expect(screen.queryByRole('navigation', { name: 'Sections', hidden: true })).toBeNull()
+  expect(nav.querySelector('a[href="/XC-Native-Site/"]')).not.toBeNull()
+})

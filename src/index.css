@@ -225,6 +225,12 @@
   background: linear-gradient(115deg, #0b171c 0%, #16303a 40%, #0d1d23 100%);
 }
 
+/* The home page's section bar sits under the main bar; anchors land below both
+   (this adds to each section's own scroll-mt). */
+html:has(#section-nav) {
+  scroll-padding-top: 2.75rem;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;

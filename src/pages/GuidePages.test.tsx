@@ -39,6 +39,9 @@ function sharedChecks(steps: GuideStep[]) {
   // nav goes back to the homepage sections
   const nav = screen.getByRole('navigation', { name: 'Main' })
   expect(nav.querySelector('a[href="/XC-Native-Site/#guide"]')).not.toBeNull()
+  // no section bar here, and no page link is current
+  expect(screen.queryByRole('navigation', { name: 'Sections', hidden: true })).toBeNull()
+  expect(nav.querySelector('[aria-current]')).toBeNull()
   // no old MacNativeGames Library paths
   expect(document.body.textContent).not.toMatch(OLD_PATHS)
   expect(document.body.textContent).toMatch(/Built on|MacNativeGames/) // credits stay

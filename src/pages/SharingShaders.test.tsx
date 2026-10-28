@@ -36,3 +36,12 @@ test('nav links point back to the landing page', () => {
   expect(nav.querySelector('a[href="/XC-Native-Site/#guide"]')).not.toBeNull()
   expect(nav.querySelector('a[href="/XC-Native-Site/sharing-shaders/"]')).not.toBeNull()
 })
+
+test('nav marks this page as current and has no section bar', () => {
+  const nav = screen.getByRole('navigation', { name: 'Main' })
+  const current = nav.querySelectorAll('[aria-current="page"]')
+  expect(current.length).toBe(2)
+  current.forEach((a) => expect(a).toHaveAttribute('href', '/XC-Native-Site/sharing-shaders/'))
+  expect(screen.queryByRole('navigation', { name: 'Sections', hidden: true })).toBeNull()
+  expect(nav.querySelector('a[href="/XC-Native-Site/"]')).not.toBeNull()
+})

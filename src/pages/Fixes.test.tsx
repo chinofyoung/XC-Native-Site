@@ -73,3 +73,12 @@ test('no em dashes in the copy', () => {
   expect(JSON.stringify({ FIXES_PAGE, FIXES })).not.toContain('—')
   expect(document.querySelector('main')!.textContent).not.toContain('—')
 })
+
+test('nav marks this page as current and has no section bar', () => {
+  const nav = screen.getByRole('navigation', { name: 'Main' })
+  const current = nav.querySelectorAll('[aria-current="page"]')
+  expect(current.length).toBe(2)
+  current.forEach((a) => expect(a).toHaveAttribute('href', '/XC-Native-Site/fixes/'))
+  expect(screen.queryByRole('navigation', { name: 'Sections', hidden: true })).toBeNull()
+  expect(nav.querySelector('a[href="/XC-Native-Site/"]')).not.toBeNull()
+})
