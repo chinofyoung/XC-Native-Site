@@ -1,4 +1,4 @@
-import { Check, CircleDot } from 'lucide-react'
+import { ArrowRight, Check, CircleDot } from 'lucide-react'
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Badge } from '@/components/ui/badge'
 import { buttonVariants } from '@/components/ui/button'
@@ -58,7 +58,16 @@ export function Status() {
         </div>
       </div>
 
-      <h3 className={cn(panelTitle, 'mt-14 mb-4')}>Known issues and not yet checked</h3>
+      <h3 className={cn(panelTitle, 'mt-14 mb-2')}>Known issues and not yet checked</h3>
+      <p className="mb-4 text-sm">
+        <a
+          href={`${import.meta.env.BASE_URL}fixes/`}
+          className="inline-flex items-center gap-0.5 text-accent-cyan underline underline-offset-4"
+        >
+          Fixed issues are listed on the Fixes page
+          <ArrowRight className="size-3.5" aria-hidden="true" />
+        </a>
+      </p>
       <Accordion className="border-l-2 border-warning/60 bg-surface px-5">
         {KNOWN_ISSUES.map((k, i) => (
           <AccordionItem key={k.title} value={`issue-${i}`}>

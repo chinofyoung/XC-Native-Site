@@ -51,7 +51,7 @@ export const PLAYTHROUGH = {
   eyebrow: 'How it gets tested',
   title: "I'm playing the game, and fixing things as I go",
   paragraphs: [
-    "There is no test lab behind this. I'm playing Xenoblade Chronicles X the normal way, on an M1 MacBook Air and an iPhone 15 Pro Max, and when something breaks I stop, fix it in the port, and keep playing.",
+    "There is no test lab behind this. I'm playing Xenoblade Chronicles X the normal way, on an M1 MacBook Air and an iPhone 15 Pro Max, and when something breaks I stop, fix it in the port, and keep playing. On the Mac the playthrough has reached Chapter 3 (update 2.0.0, 2026-10-28). On the iPhone only the first area has been played so far.",
     "That is why the status list below looks the way it does: the parts I've reached work, and the parts I haven't reached yet simply haven't been checked. Each fix lands in the repo, so the next build you make includes it.",
   ],
   cta: 'Ran into something before I got there? Open an issue',
@@ -59,7 +59,7 @@ export const PLAYTHROUGH = {
 
 export const EARLY_NOTICE = {
   title: 'This is an early version, not thoroughly tested yet',
-  body: "Only parts of the game have been played and checked so far, mostly the opening areas. Expect bugs, crashes and graphics problems, especially in places nobody has reached yet. The iPhone build is experimental.",
+  body: "Only parts of the game have been played and checked so far: up to Chapter 3 on the Mac, and only the first area on the iPhone. Expect bugs, crashes and graphics problems, especially in places nobody has reached yet. The iPhone build is experimental.",
   links: { status: 'See what works and what is known to break', issues: 'Report a problem' },
 }
 
@@ -105,7 +105,7 @@ export const HERO = {
     },
     {
       title: 'Mac + iPhone',
-      body: 'A smooth 30 fps on an M1 MacBook Air. iPhone (experimental) is tested on a 15 Pro Max, in the first area only. 60 fps is experimental.',
+      body: 'A smooth 30 fps on an M1 MacBook Air, played up to Chapter 3. iPhone (experimental) is tested on a 15 Pro Max, in the first area only. 60 fps is experimental.',
     },
     {
       title: 'Bring your own',

@@ -97,6 +97,18 @@ test('nav links to the Moving saves page', () => {
   expect(labels[1]).toBe('Saves')
 })
 
+test('nav links to the Fixes page, and the known issues point to it', () => {
+  const nav = screen.getByRole('navigation', { name: 'Main' })
+  const links = nav.querySelectorAll('a[href="/XC-Native-Site/fixes/"]')
+  expect(links.length).toBe(2)
+  expect(Array.from(links).every((l) => l.textContent === 'Fixes')).toBe(true)
+  const status = document.getElementById('status')!
+  expect(within(status).getByRole('link', { name: /Fixed issues are listed on the Fixes page/ })).toHaveAttribute(
+    'href',
+    '/XC-Native-Site/fixes/',
+  )
+})
+
 test('playthrough section explains testing by playing, with an issues link', () => {
   const s = document.getElementById('playthrough')!
   expect(within(s).getByRole('heading', { level: 2 })).toHaveTextContent(/playing the game/i)

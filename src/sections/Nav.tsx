@@ -35,7 +35,7 @@ function useScrolled(threshold = 24) {
  * once scrolled. On the landing page links are plain hashes; on other pages
  * they point back to it.
  */
-export function Nav({ page = 'home' }: { page?: 'home' | 'sharing' | 'saves' | 'mac' | 'iphone' }) {
+export function Nav({ page = 'home' }: { page?: 'home' | 'sharing' | 'saves' | 'fixes' | 'mac' | 'iphone' }) {
   const base = import.meta.env.BASE_URL
   const prefix = page === 'home' ? '' : base
   const scrolled = useScrolled()
@@ -43,6 +43,7 @@ export function Nav({ page = 'home' }: { page?: 'home' | 'sharing' | 'saves' | '
     ...SECTION_LINKS.map((l) => ({ ...l, href: `${prefix}${l.href}` })),
     { href: `${base}sharing-shaders/`, label: 'Share shaders', short: 'Shaders' },
     { href: `${base}moving-saves/`, label: 'Move saves', short: 'Saves' },
+    { href: `${base}fixes/`, label: 'Fixes' },
   ]
   return (
     <nav
@@ -52,7 +53,7 @@ export function Nav({ page = 'home' }: { page?: 'home' | 'sharing' | 'saves' | '
         scrolled ? 'border-border bg-background/90 backdrop-blur-md' : 'border-transparent bg-transparent',
       )}
     >
-      <div className="mx-auto flex h-14 max-w-[1240px] items-center justify-between gap-3 px-4 sm:px-6 lg:h-16 lg:px-10">
+      <div className="mx-auto flex h-14 max-w-[1240px] items-center justify-between gap-3 px-4 sm:px-6 lg:h-16 xl:px-10">
         <a
           href={page === 'home' ? '#top' : base}
           className="flex shrink-0 items-center gap-2.5 font-display text-xl font-semibold tracking-[0.02em] whitespace-nowrap text-ice sm:text-[22px]"
@@ -60,11 +61,11 @@ export function Nav({ page = 'home' }: { page?: 'home' | 'sharing' | 'saves' | '
           <LogoMark />
           <span className="max-sm:sr-only">XC Native</span>
         </a>
-        <ul className="hidden items-center gap-1 lg:flex xl:gap-7">
+        <ul className="hidden items-center gap-0.5 lg:flex xl:gap-3">
           {LINKS.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className={cn(linkCls, 'whitespace-nowrap')}>
-                {/* the short label until xl, so seven links and the buttons fit at 1024 px */}
+              <a href={l.href} className={cn(linkCls, 'whitespace-nowrap lg:px-1.5 xl:px-2')}>
+                {/* the short label and tighter spacing until xl, so seven links and the buttons fit at 1024 px */}
                 {l.short ? (
                   <>
                     <span className="xl:hidden">{l.short}</span>

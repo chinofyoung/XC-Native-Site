@@ -9,7 +9,7 @@ export const STAGES: { n: number; goal: string; state: 'done' | 'in progress' }[
 
 export const WORKS: string[] = [
   'Title screen, character creation and gameplay in Primordia',
-  'Characters drawn and lit, in the field and in battle (the first battle was played)',
+  'Characters drawn and lit, in the field and in battle (played up to Chapter 3 on Mac)',
   'Field and battle HUD and menu text',
   'Saves write, and Continue loads them',
   'A controller and the Mac keyboard',
@@ -23,11 +23,11 @@ export const WORKS: string[] = [
 export const KNOWN_ISSUES: { title: string; body: string }[] = [
   {
     title: 'Large areas not checked yet',
-    body: 'Skells, cutscenes, day-time lighting, water, menus beyond character creation, and a New Game through character creation with the current build.',
+    body: 'The Mac playthrough is at Chapter 3 (2.0.0); nothing past it has been checked. Not checked yet: Skells, cutscenes, day-time lighting, water, menus beyond character creation, and a New Game through character creation with the current build.',
   },
   {
     title: 'Rendering glitches in New Los Angeles and cutscenes',
-    body: 'Flickering black shapes come off some objects, and characters\' eyes can disappear during cutscenes (they are fine in character creation). At 60 fps, fixes from 2026-10-25 made the flicker much rarer (play-tested on Mac). Thin black lines or small white or black flashes still appear for a split second now and then, at 60 fps and, rarely, at 30 fps. In field battles, single frames could show a mesh stretched toward another object; a fix from 2026-10-27 removed it (play-tested on Mac at 60 fps), and building the app again gets it. Being investigated.',
+    body: 'Flickering black shapes come off some objects, and characters\' eyes can disappear during cutscenes (they are fine in character creation). Thin black lines or small white or black flashes appear for a split second now and then, at 60 fps and, rarely, at 30 fps. Being investigated.',
   },
   {
     title: 'Frame interpolation (key 2)',
@@ -35,7 +35,7 @@ export const KNOWN_ISSUES: { title: string; body: string }[] = [
   },
   {
     title: '60 fps is experimental',
-    body: 'Off by default; 30 fps is the game\'s own and the Mac then runs unpatched code. Checked on 2.0.0 in Primordia at night on an M1 MacBook Air: about 45-57 fps in the field (GPU-limited), with the same walking speed as at 30 fps. Two of the game\'s subsystems step a fixed 1/60 s per frame, so they run slower while below 60 fps. The speed of the time of day could not be checked. Cutscenes, Skells and cities are untested. A fanless Mac or a phone gets hotter. The timed B-button prompt in battle (Soul Challenge) ran twice as fast at 60 fps; fixed on 2026-10-25 and play-tested on Mac and iPhone (the iPhone needs an IPA built on 2026-10-25 or later). Effects, such as the item that flies to your character after a pickup or a treasure container, played about twice as fast at 60 fps; a fix from 2026-10-28 corrects it (play-tested on Mac), and building the app again gets it.',
+    body: 'Off by default; 30 fps is the game\'s own and the Mac then runs unpatched code. Checked on 2.0.0 in Primordia at night on an M1 MacBook Air: about 45-57 fps in the field (GPU-limited), with the same walking speed as at 30 fps. Two of the game\'s subsystems step a fixed 1/60 s per frame, so they run slower while below 60 fps. The speed of the time of day could not be checked. Cutscenes, Skells and cities are untested. A fanless Mac or a phone gets hotter. A short sound cue of the timed B-button prompt in battle (Soul Challenge) plays early at 60 fps.',
   },
   {
     title: 'MetalFX upscaling not checked',
@@ -47,7 +47,7 @@ export const KNOWN_ISSUES: { title: string; body: string }[] = [
   },
   {
     title: 'Missing graphics functions',
-    body: 'About a hundred NVN functions the game imports are not implemented. One that is called stops the game with its name in the log; none was reached up to the first battle.',
+    body: 'About a hundred NVN functions the game imports are not implemented. One that is called stops the game with its name in the log; none has stopped the game so far, up to Chapter 3 on Mac.',
   },
   {
     title: 'Shaders nobody has shared yet',

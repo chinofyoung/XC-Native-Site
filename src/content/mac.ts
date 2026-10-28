@@ -315,13 +315,14 @@ export const MAC_GUIDE: GuidePage = {
       {
         q: 'Black shapes flicker in New Los Angeles, or eyes disappear in cutscenes',
         a: [
-          'A known issue: flickering black shapes come off some objects, and characters\' eyes can disappear during cutscenes (they are fine in character creation). At 60 fps, fixes from 2026-10-25 made the flicker much rarer; build the app again to get them. Thin black lines or small flashes can still appear for a split second now and then, at 60 fps and, rarely, at 30 fps. In field battles, single frames could show a mesh stretched toward another object; a fix from 2026-10-27 removed it (play-tested on Mac at 60 fps), and building the app again gets it. Being investigated.',
+          'A known issue: flickering black shapes come off some objects, and characters\' eyes can disappear during cutscenes (they are fine in character creation). Thin black lines or small flashes can appear for a split second now and then, at 60 fps and, rarely, at 30 fps. Being investigated.',
+          'Fixes for flicker at 60 fps and for stretched meshes in field battles are on the Fixes page; build the app again to get them.',
         ],
       },
       {
         q: 'The game stopped and the log names a function',
         a: [
-          'About a hundred NVN functions the game imports are not implemented. One that is called stops the game with its name in the log; none was reached up to the first battle. Please open an issue with that log line.',
+          'About a hundred NVN functions the game imports are not implemented. One that is called stops the game with its name in the log; none has stopped the game so far, up to Chapter 3 on Mac. Please open an issue with that log line.',
         ],
       },
       {
