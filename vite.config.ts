@@ -19,6 +19,7 @@ export default defineConfig({
         sharing: path.resolve(import.meta.dirname, 'sharing-shaders/index.html'),
         mac: path.resolve(import.meta.dirname, 'mac/index.html'),
         iphone: path.resolve(import.meta.dirname, 'iphone/index.html'),
+        saves: path.resolve(import.meta.dirname, 'moving-saves/index.html'),
       },
     },
   },

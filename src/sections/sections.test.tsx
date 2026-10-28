@@ -88,6 +88,15 @@ test('share-shaders section links to the page and the issue form', () => {
   expect(document.querySelectorAll('nav a[href="/XC-Native-Site/sharing-shaders/"]').length).toBe(2)
 })
 
+test('nav links to the Moving saves page', () => {
+  const nav = screen.getByRole('navigation', { name: 'Main' })
+  const links = nav.querySelectorAll('a[href="/XC-Native-Site/moving-saves/"]')
+  expect(links.length).toBe(2)
+  const labels = Array.from(links).map((l) => l.textContent)
+  expect(labels[0]).toContain('Move saves')
+  expect(labels[1]).toBe('Saves')
+})
+
 test('playthrough section explains testing by playing, with an issues link', () => {
   const s = document.getElementById('playthrough')!
   expect(within(s).getByRole('heading', { level: 2 })).toHaveTextContent(/playing the game/i)

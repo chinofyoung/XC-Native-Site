@@ -217,7 +217,13 @@ export const MAC_STEPS: GuideStep[] = [
         kind: 'warning',
         text: 'A 1.0.1 save loads in 2.0.0, but the other direction is not guaranteed: once 2.0.0 has saved, that save may not load in 1.0.1 again. Back up your saves first.',
       },
+      {
+        kind: 'tip',
+        title: 'Moving saves to another Mac or an iPhone?',
+        text: 'The settings window has **Export Saves…** and **Import Saves…** in its **Saves** row. Export makes one zip you can AirDrop or put in iCloud Drive; Import checks it, backs up your current saves, then replaces them.',
+      },
     ],
+    link: { label: 'Moving saves, step by step', url: `${base}moving-saves/` },
   },
 ]
 

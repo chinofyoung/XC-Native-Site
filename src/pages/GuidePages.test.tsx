@@ -91,6 +91,13 @@ describe('Mac page', () => {
     expect(within(table).getByText('Left stick')).toBeInTheDocument()
   })
 
+  test('the updating step links to Moving saves and names the buttons', () => {
+    const step = document.getElementById('updating')!.closest('li')!
+    expect(step.querySelector('a[href="/XC-Native-Site/moving-saves/"]')).not.toBeNull()
+    expect(step.textContent).toContain('Export Saves…')
+    expect(step.textContent).toContain('Import Saves…')
+  })
+
   test('keeps the update note and the clean-build time', () => {
     expect(screen.getByText(/delete apps built before this update/i)).toBeInTheDocument()
     expect(screen.getByText(/a clean build takes about 8 minutes/i)).toBeInTheDocument()
@@ -138,6 +145,14 @@ describe('iPhone page', () => {
   test('links to the Mac page Terminal primer instead of repeating it', () => {
     expect(document.querySelector('a[href="/XC-Native-Site/mac/#terminal"]')).not.toBeNull()
     expect(document.getElementById('terminal')).toBeNull()
+  })
+
+  test('the app opens on a start screen and the updating step links to Moving saves', () => {
+    const launch = document.getElementById('trust-launch')!.closest('li')!
+    expect(launch.textContent).toMatch(/opens on a start screen/)
+    expect(launch.textContent).toMatch(/Tap Play/)
+    const step = document.getElementById('updating')!.closest('li')!
+    expect(step.querySelector('a[href="/XC-Native-Site/moving-saves/"]')).not.toBeNull()
   })
 
   test('keeps the touch, update and shader counter facts', () => {

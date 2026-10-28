@@ -119,3 +119,28 @@ test('60 fps step shows the Settings screenshot', () => {
 test('second Mac video is set', () => {
   expect(VIDEOS.map((v) => v.id)).toContain('WeeY_6jE64Q')
 })
+
+test('saves page copy matches the apps and has no em dashes', async () => {
+  const { SAVES, MAC_BACKUP_PATH, IOS_BACKUP_NAME, SAVES_ZIP_NAME } = await import('./saves')
+  const all = JSON.stringify(SAVES)
+  expect(SAVES_ZIP_NAME).toBe('XCX-saves-<yyyy-MM-dd-HHmm>.zip')
+  expect(MAC_BACKUP_PATH).toBe('~/Library/Application Support/XCNative/XCX/profile-<version>-backup-<date>')
+  expect(IOS_BACKUP_NAME).toBe('save-<version>-backup-<date>')
+  // the Mac buttons end in an ellipsis character, the iPhone ones do not
+  expect(all).toContain('**Export Saves…**')
+  expect(all).toContain('**Import Saves…**')
+  expect(all).toContain('**Export Saves**')
+  expect(all).toContain('**Import Saves**')
+  expect(all).not.toMatch(/Saves\.\.\./)
+  expect(all).not.toContain('—')
+  expect(all).not.toMatch(/Application Support\/MacNativeGames/)
+  const ids = SAVES.how.flows.map((f) => f.id)
+  expect(new Set(ids).size).toBe(ids.length)
+})
+
+test('both guides link to the Moving saves page', () => {
+  for (const steps of [MAC_STEPS, IOS_STEPS]) {
+    expect(steps.find((s) => s.id === 'updating')!.link!.url).toBe('/XC-Native-Site/moving-saves/')
+  }
+  expect(JSON.stringify(IOS_STEPS.find((s) => s.id === 'trust-launch'))).toMatch(/Tap \*\*Play\*\*/)
+})

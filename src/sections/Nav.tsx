@@ -35,13 +35,14 @@ function useScrolled(threshold = 24) {
  * once scrolled. On the landing page links are plain hashes; on other pages
  * they point back to it.
  */
-export function Nav({ page = 'home' }: { page?: 'home' | 'sharing' | 'mac' | 'iphone' }) {
+export function Nav({ page = 'home' }: { page?: 'home' | 'sharing' | 'saves' | 'mac' | 'iphone' }) {
   const base = import.meta.env.BASE_URL
   const prefix = page === 'home' ? '' : base
   const scrolled = useScrolled()
   const LINKS: NavLink[] = [
     ...SECTION_LINKS.map((l) => ({ ...l, href: `${prefix}${l.href}` })),
     { href: `${base}sharing-shaders/`, label: 'Share shaders', short: 'Shaders' },
+    { href: `${base}moving-saves/`, label: 'Move saves', short: 'Saves' },
   ]
   return (
     <nav
@@ -54,16 +55,24 @@ export function Nav({ page = 'home' }: { page?: 'home' | 'sharing' | 'mac' | 'ip
       <div className="mx-auto flex h-14 max-w-[1240px] items-center justify-between gap-3 px-4 sm:px-6 lg:h-16 lg:px-10">
         <a
           href={page === 'home' ? '#top' : base}
-          className="flex items-center gap-2.5 font-display text-xl font-semibold tracking-[0.02em] text-ice sm:text-[22px]"
+          className="flex shrink-0 items-center gap-2.5 font-display text-xl font-semibold tracking-[0.02em] whitespace-nowrap text-ice sm:text-[22px]"
         >
           <LogoMark />
           <span className="max-sm:sr-only">XC Native</span>
         </a>
-        <ul className="hidden items-center gap-4 lg:flex xl:gap-7">
+        <ul className="hidden items-center gap-1 lg:flex xl:gap-7">
           {LINKS.map((l) => (
             <li key={l.href}>
-              <a href={l.href} className={linkCls}>
-                {l.label}
+              <a href={l.href} className={cn(linkCls, 'whitespace-nowrap')}>
+                {/* the short label until xl, so seven links and the buttons fit at 1024 px */}
+                {l.short ? (
+                  <>
+                    <span className="xl:hidden">{l.short}</span>
+                    <span className="hidden xl:inline">{l.label}</span>
+                  </>
+                ) : (
+                  l.label
+                )}
               </a>
             </li>
           ))}

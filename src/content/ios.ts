@@ -151,7 +151,7 @@ export const IOS_STEPS: GuideStep[] = [
     substeps: [
       'On the device, open Settings › General › VPN & Device Management.',
       'Trust your Apple ID.',
-      'Launch Xenoblade Chronicles X.',
+      'Launch Xenoblade Chronicles X. It opens on a start screen with **Play**, **Export Saves** and **Import Saves**. Tap **Play** to start the game.',
     ],
     notes: [
       {
@@ -184,7 +184,7 @@ export const IOS_STEPS: GuideStep[] = [
       'Find **Xenoblade Chronicles X** in the list and tap it.',
       'Under **Frame rate**, pick **60 (experimental)**. To go back, pick **30 (original)**.',
       'Close the game fully: swipe up from the bottom of the screen and hold to open the app switcher, then swipe the game away.',
-      'Open the game again. The new frame rate only applies after a restart.',
+      'Open the game again and tap **Play**. The new frame rate only applies after a restart.',
     ],
     image: {
       file: 'screenshots/ios-settings-frame-rate.webp',
@@ -224,6 +224,7 @@ export const IOS_STEPS: GuideStep[] = [
         text: 'With a free Apple ID, the new app counts as one more App ID (the limit is about 10 per 7 days).',
       },
     ],
+    link: { label: 'Move saves between a Mac and an iPhone or iPad: Moving saves', url: `${base}moving-saves/` },
   },
 ]
 
