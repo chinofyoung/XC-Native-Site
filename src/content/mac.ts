@@ -176,7 +176,7 @@ export const MAC_STEPS: GuideStep[] = [
     id: 'sixty-fps',
     title: 'Optional: try 60 fps',
     body: [
-      'The settings window also has an experimental 60 fps option under **Frame rate: 30 (original) / 60 (experimental)**. It is off by default and reaches about 45-57 fps in the field on an M1.',
+      'The settings window also has an experimental 60 fps option under **Frame rate: 30 (original) / 60 (experimental)**. It is off by default and reaches about 45-57 fps in the field on an M1. While playing, key 3 switches between 30 and 60 fps.',
     ],
     notes: [
       {
@@ -194,7 +194,7 @@ export const MAC_STEPS: GuideStep[] = [
     ],
     extra: 'controls',
     notes: [
-      { kind: 'tip', text: 'Keys 3 and 4 do nothing in this port.' },
+      { kind: 'tip', text: 'Keys 2, 3 and 4 show a short confirmation in the corner for about 2 seconds, even with the overlay hidden, and the launcher remembers the choice for the next start. Holding a key down does not repeat it. Key 5 does nothing for now.' },
     ],
   },
   {
@@ -240,8 +240,10 @@ export const CONTROLS: { key: string; switch: string }[] = [
   { key: 'Z / C', switch: 'Left / right stick press' },
   { key: 'Return', switch: '+' },
   { key: 'Tab, Esc', switch: '−' },
-  { key: '1', switch: 'Show or hide the on-screen overlay' },
-  { key: '2', switch: 'Cycle MetalFX frame interpolation (off at start; costs more than it gains on an M1, and causes visual glitches: moving characters, enemies and rain streaks ghost, enemy labels run half a frame ahead)' },
+  { key: '1', switch: 'Cycle the overlay: full, smaller, FPS only, hidden' },
+  { key: '2', switch: 'Turn MetalFX scaling on or off' },
+  { key: '3', switch: 'Switch between 30 and 60 fps while playing' },
+  { key: '4', switch: 'Switch between docked and handheld rendering while playing' },
 ]
 
 export const MAC_GUIDE: GuidePage = {
@@ -307,9 +309,9 @@ export const MAC_GUIDE: GuidePage = {
         ],
       },
       {
-        q: 'The frame rate drops, or things ghost, after pressing 2',
+        q: 'What happened to frame interpolation?',
         a: [
-          'Key 2 cycles MetalFX frame interpolation. On an M1 it costs more than it gains: with 30+30 the game itself drops to about 23-27 fps. It also causes visual glitches: characters and enemies moving on their own, and rain streaks, ghost in the generated frames, and labels attached to enemies run half a frame ahead. Press 2 until it is off again; it is off at start.',
+          'Frame interpolation is hidden for now (not on any key) until it is fixed. It cost more than it gained on an M1 and made moving characters, enemies and rain streaks ghost. Key 2 now turns MetalFX scaling on or off.',
         ],
       },
       {
@@ -322,7 +324,7 @@ export const MAC_GUIDE: GuidePage = {
       {
         q: 'The game stopped and the log names a function',
         a: [
-          'About a hundred NVN functions the game imports are not implemented. One that is called stops the game with its name in the log; none has stopped the game so far, up to Chapter 3 on Mac. Please open an issue with that log line.',
+          'About a hundred NVN functions the game imports are not implemented. One that is called stops the game with its name in the log; none has stopped the game so far, up to Chapter 4 on Mac. Please open an issue with that log line.',
         ],
       },
       {

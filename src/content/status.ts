@@ -3,13 +3,13 @@ export const STAGES: { n: number; goal: string; state: 'done' | 'in progress' }[
   { n: 1, goal: 'Code and data out of your dump, code rewritten for Apple silicon', state: 'done' },
   { n: 2, goal: 'The runtime boots the game to its nnMain', state: 'done' },
   { n: 3, goal: 'First frame and the title screen', state: 'done' },
-  { n: 4, goal: 'Picture, audio, input, saves', state: 'in progress' },
+  { n: 4, goal: 'Picture, audio, input, saves', state: 'done' },
   { n: 5, goal: 'Performance, shaders, the app', state: 'in progress' },
 ]
 
 export const WORKS: string[] = [
   'Title screen, character creation and gameplay in Primordia',
-  'Characters drawn and lit, in the field and in battle (played up to Chapter 3 on Mac)',
+  'Characters drawn and lit, in the field and in battle (played up to Chapter 4 on Mac)',
   'Field and battle HUD and menu text',
   'Saves write, and Continue loads them',
   'A controller and the Mac keyboard',
@@ -23,15 +23,15 @@ export const WORKS: string[] = [
 export const KNOWN_ISSUES: { title: string; body: string }[] = [
   {
     title: 'Large areas not checked yet',
-    body: 'The Mac playthrough is at Chapter 3 (2.0.0); nothing past it has been checked. Not checked yet: Skells, cutscenes, day-time lighting, water, menus beyond character creation, and a New Game through character creation with the current build.',
+    body: 'The Mac playthrough is at Chapter 4 (2.0.0); nothing past it has been checked. Picture, audio and cutscenes were fine up to there. Not checked yet: Skells, day-time lighting, water, menus beyond character creation, and a New Game through character creation with the current build.',
   },
   {
     title: 'Rendering glitches in New Los Angeles and cutscenes',
     body: 'Flickering black shapes come off some objects, and characters\' eyes can disappear during cutscenes (they are fine in character creation). Thin black lines or small white or black flashes appear for a split second now and then, at 60 fps and, rarely, at 30 fps. Being investigated.',
   },
   {
-    title: 'Frame interpolation (key 2)',
-    body: 'On an M1 it costs more than it gains: the game drops to about 23-27 fps. Moving characters, enemies and rain streaks ghost in the generated frames, and labels attached to enemies run half a frame ahead. It is off at start.',
+    title: 'Frame interpolation is hidden',
+    body: 'Frame interpolation is hidden for now (not on any key) until it is fixed. On an M1 it cost more than it gained, and it made moving characters, enemies and rain streaks ghost.',
   },
   {
     title: '60 fps is experimental',
@@ -47,7 +47,7 @@ export const KNOWN_ISSUES: { title: string; body: string }[] = [
   },
   {
     title: 'Missing graphics functions',
-    body: 'About a hundred NVN functions the game imports are not implemented. One that is called stops the game with its name in the log; none has stopped the game so far, up to Chapter 3 on Mac.',
+    body: 'About a hundred NVN functions the game imports are not implemented. One that is called stops the game with its name in the log; none has stopped the game so far, up to Chapter 4 on Mac.',
   },
   {
     title: 'Shaders nobody has shared yet',

@@ -75,10 +75,13 @@ test('iPhone guide is scoped to the iPhone 15 Pro Max and the first area', () =>
   expect(IOS_GUIDE.experimental).toMatch(/Nothing past it has been tested on iPhone/)
 })
 
-test('Mac guide warns about interpolation ghosting and early enemy labels', () => {
-  const key2 = CONTROLS.find((c) => c.key === '2')!
-  expect(key2.switch).toMatch(/ghost/)
-  expect(key2.switch).toMatch(/half a frame ahead/)
+test('Mac guide lists the in-game keys 1 to 4 and no longer offers interpolation on a key', () => {
+  const sw = (k: string) => CONTROLS.find((c) => c.key === k)!.switch
+  expect(sw('1')).toMatch(/hidden/)
+  expect(sw('2')).toMatch(/MetalFX scaling/)
+  expect(sw('3')).toMatch(/30 and 60 fps/)
+  expect(sw('4')).toMatch(/docked and handheld/)
+  expect(JSON.stringify(CONTROLS)).not.toMatch(/interpolation/)
 })
 
 test('iPhone guide warns about the slow first launch', () => {
