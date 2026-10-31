@@ -181,7 +181,7 @@ export const MAC_STEPS: GuideStep[] = [
     notes: [
       {
         kind: 'warning',
-        text: 'Two of the game\'s subsystems step by a fixed 1/60 s a frame, so they run slower than normal while the game is below 60 fps. Cutscenes, Skells and cities were not tested. On a fanless Mac the higher frame rate means more heat.',
+        text: 'Two of the game\'s subsystems step by a fixed 1/60 s a frame, so they run slower than normal while the game is below 60 fps. The playthrough to Chapter 4 ran at 60 fps, including cutscenes and New Los Angeles; Skells were not tested. On a fanless Mac the higher frame rate means more heat.',
       },
     ],
     link: { label: 'The README has the details on 60 fps.', url: README_URL },
@@ -312,13 +312,6 @@ export const MAC_GUIDE: GuidePage = {
         q: 'What happened to frame interpolation?',
         a: [
           'Frame interpolation is hidden for now (not on any key) until it is fixed. It cost more than it gained on an M1 and made moving characters, enemies and rain streaks ghost. Key 2 now turns MetalFX scaling on or off.',
-        ],
-      },
-      {
-        q: 'Black shapes flicker in New Los Angeles, or eyes disappear in cutscenes',
-        a: [
-          'A known issue: flickering black shapes come off some objects, and characters\' eyes can disappear during cutscenes (they are fine in character creation). Thin black lines or small flashes can appear for a split second now and then, at 60 fps and, rarely, at 30 fps. Being investigated.',
-          'Fixes for flicker at 60 fps and for stretched meshes in field battles are on the Fixes page; build the app again to get them.',
         ],
       },
       {

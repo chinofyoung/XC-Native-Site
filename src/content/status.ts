@@ -26,16 +26,12 @@ export const KNOWN_ISSUES: { title: string; body: string }[] = [
     body: 'The Mac playthrough is at Chapter 4 (2.0.0); nothing past it has been checked. Picture, audio and cutscenes were fine up to there. Not checked yet: Skells, day-time lighting, water, menus beyond character creation, and a New Game through character creation with the current build.',
   },
   {
-    title: 'Rendering glitches in New Los Angeles and cutscenes',
-    body: 'Flickering black shapes come off some objects, and characters\' eyes can disappear during cutscenes (they are fine in character creation). Thin black lines or small white or black flashes appear for a split second now and then, at 60 fps and, rarely, at 30 fps. Being investigated.',
-  },
-  {
     title: 'Frame interpolation is hidden',
     body: 'Frame interpolation is hidden for now (not on any key) until it is fixed. On an M1 it cost more than it gained, and it made moving characters, enemies and rain streaks ghost.',
   },
   {
     title: '60 fps is experimental',
-    body: 'Off by default; 30 fps is the game\'s own and the Mac then runs unpatched code. Checked on 2.0.0 in Primordia at night on an M1 MacBook Air: about 45-57 fps in the field (GPU-limited), with the same walking speed as at 30 fps. Two of the game\'s subsystems step a fixed 1/60 s per frame, so they run slower while below 60 fps. The speed of the time of day could not be checked. Cutscenes, Skells and cities are untested. A fanless Mac or a phone gets hotter. A short sound cue of the timed B-button prompt in battle (Soul Challenge) plays early at 60 fps.',
+    body: 'Off by default; 30 fps is the game\'s own and the Mac then runs unpatched code. Checked on 2.0.0 in Primordia at night on an M1 MacBook Air: about 45-57 fps in the field (GPU-limited), with the same walking speed as at 30 fps. Two of the game\'s subsystems step a fixed 1/60 s per frame, so they run slower while below 60 fps. The speed of the time of day could not be checked. The playthrough to Chapter 4 ran at 60 fps, including cutscenes and New Los Angeles; Skells are untested. A fanless Mac or a phone gets hotter. A short sound cue of the timed B-button prompt in battle (Soul Challenge) plays early at 60 fps.',
   },
   {
     title: 'MetalFX upscaling not checked',

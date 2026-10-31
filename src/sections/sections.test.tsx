@@ -116,9 +116,9 @@ test('playthrough section explains testing by playing, with an issues link', () 
   expect(link).toHaveAttribute('rel', expect.stringContaining('noopener'))
 })
 
-test('status lists the New Los Angeles glitch, drops the shader seed issue and has the shader works line', async () => {
+test('status drops the New Los Angeles glitch and the shader seed issue and has the shader works line', async () => {
   const { KNOWN_ISSUES, WORKS } = await import('@/content/status')
-  expect(KNOWN_ISSUES.map(i => i.title)).toContain('Rendering glitches in New Los Angeles and cutscenes')
+  expect(KNOWN_ISSUES.map(i => i.title)).not.toContain('Rendering glitches in New Los Angeles and cutscenes')
   expect(KNOWN_ISSUES.map(i => i.title)).not.toContain('No shader seed yet')
   expect(WORKS).toContain('Every shader in the game is prepared at build time, for Mac and iPhone')
 })

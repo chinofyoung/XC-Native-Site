@@ -151,18 +151,16 @@ test('both guides link to the Moving saves page', () => {
 test('known issues keep only open problems; fixes live on the Fixes page', async () => {
   const { KNOWN_ISSUES } = await import('./status')
   const { FIXES } = await import('./fixes')
-  const flickerFaq = MAC_GUIDE.troubleshooting.items.find((i) => i.q.startsWith('Black shapes flicker'))!
-  const texts = [...KNOWN_ISSUES.map((k) => k.body), ...flickerFaq.a]
+  const texts = KNOWN_ISSUES.map((k) => k.body)
   for (const t of texts) {
     expect(t).not.toMatch(/fix from|fixes from|fixed on|a fix shipped|corrects it|removed it|much rarer/i)
     expect(t).not.toMatch(/2026-10-2\d/)
   }
   // the still-open problems stay
   const all = JSON.stringify(KNOWN_ISSUES)
-  expect(all).toContain('Thin black lines or small white or black flashes')
-  expect(all).toContain('eyes can disappear during cutscenes')
+  expect(all).not.toContain('Rendering glitches in New Los Angeles')
+  expect(MAC_GUIDE.troubleshooting.items.some((i) => i.q.startsWith('Black shapes flicker'))).toBe(false)
   expect(all).toMatch(/sound cue .* plays early at 60 fps/)
-  expect(flickerFaq.a.join(' ')).toContain('on the Fixes page')
   // each date is a real YYYY-MM-DD and each commit a short sha
   for (const f of FIXES) {
     expect(f.date).toMatch(/^\d{4}-\d{2}-\d{2}$/)
